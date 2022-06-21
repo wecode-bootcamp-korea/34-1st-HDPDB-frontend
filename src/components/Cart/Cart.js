@@ -1,7 +1,7 @@
 import React from 'react';
 import './Cart.scss';
-function Cart(props) {
+const Cart = () => {
   return <div></div>;
-}
+};
 
 export default Cart;

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Purchase.scss';
-function Purchase(props) {
+const Purchase = () => {
   return <div></div>;
-}
+};
 
 export default Purchase;
