@@ -1,0 +1,74 @@
+@import url(../../styles/variables.scss);
+
+footer {
+  display: flex;
+  flex-direction: column;
+}
+
+li,
+ul {
+  margin-bottom: 10px;
+}
+
+.drop_logo {
+  position: relative;
+  width: 145px;
+  height: 36px;
+}
+
+li {
+  &:hover {
+    color: #efbf37;
+  }
+
+  &:first-child {
+    pointer-events: none;
+  }
+}
+
+.footer_container {
+  display: flex;
+  justify-content: flex-start;
+  color: white;
+  background-color: #222222;
+  padding: 40px 0px 200px 0px;
+}
+
+.footer_detail {
+  :first-child {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  margin-bottom: 50px;
+
+  li {
+    margin-bottom: 15px;
+  }
+}
+
+.footer_icon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  img {
+    margin-right: 20px;
+    width: 50px;
+    -webkit-filter: opacity(0.5) drop-shadow(0 0 0 white);
+    filter: opacity(0.5) drop-shadow(0 0 0 white);
+
+    &:hover {
+      -webkit-filter: opacity(0.2) drop-shadow(0 0 0 #efbf37);
+      filter: opacity(0.2) drop-shadow(0 0 0 #efbf37);
+    }
+  }
+}
+
+.footer_box {
+  margin-right: 40px;
+
+  &:first-child {
+    margin: 0px 80px 0px 80px;
+  }
+}
