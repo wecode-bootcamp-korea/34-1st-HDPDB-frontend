@@ -8,12 +8,12 @@ import Footer from '../src/components/Footer/Footer';
 const Router = () => {
   return (
     <BrowserRouter>
+      <Nav />
       <Routes>
-        <Nav />
         <Route path="/main" element={<Main />} />
         <Route path="/purchase" element={<ProductDetail />} />
-        <Footer />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
