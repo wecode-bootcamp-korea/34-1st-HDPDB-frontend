@@ -1,28 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './Footer.scss';
 import FooterBox from './FooterBox';
 import FooterIcon from './FooterIcon';
+import FooterData from './FooterData/footerData';
+import IconData from './FooterData/IconData';
 
 const Footer = () => {
-  const [footerValue, setFooterValue] = useState([]);
-  const [iconValue, setIconValue] = useState([]);
-
-  useEffect(() => {
-    fetch('/data/footerData.json')
-      .then(res => res.json())
-      .then(data => {
-        setFooterValue(data);
-      });
-  }, []);
-  useEffect(() => {
-    fetch('/data/iconData.json')
-      .then(res => res.json())
-      .then(data => {
-        setIconValue(data);
-        console.log(data[0].icon_name);
-      });
-  }, []);
-
   return (
     <footer className="foo">
       <div className="footer_container">
@@ -33,7 +16,7 @@ const Footer = () => {
             src="../images/logo/dropCI-white.png"
           ></img>
         </div>
-        {footerValue.map(value => (
+        {FooterData.map(value => (
           <FooterBox
             key={value.firstLine}
             firstLine={value.firstLine}
@@ -48,7 +31,7 @@ const Footer = () => {
           />
         ))}
         <div className="footer_sns_logo">
-          {iconValue.map(value => (
+          {IconData.map(value => (
             <FooterIcon
               key={value.icon_name}
               iconName={value.icon_name}

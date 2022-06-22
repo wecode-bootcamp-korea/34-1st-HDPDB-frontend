@@ -1,0 +1,48 @@
+const FOOTER_DATA = [
+  {
+    firstLine: 'About',
+    secondeLine: 'About Drop',
+    thirdLine: 'About Drop Studio',
+    fourthLine: 'Careers',
+    fifthLine: 'contact',
+    sixthLine: 'DROP REFURBISHED',
+    seventhLine: 'Like-new products you can trust',
+    eighthLine: '',
+    ninthLine: '',
+  },
+  {
+    firstLine: 'Drop REWARDS',
+    secondeLine: 'Get $5 for every 500 points you earn! Learn more!',
+    thirdLine: '',
+    fourthLine: '',
+    fifthLine: '',
+    sixthLine: 'DROP REFURBISHED',
+    seventhLine: 'Like-new products you can trust',
+    eighthLine: 'your keycap collection',
+    ninthLine: '',
+  },
+  {
+    firstLine: 'COLLABORATE WITH US',
+    secondeLine: 'For Brands & Designers',
+    thirdLine: '',
+    fourthLine: '',
+    fifthLine: '',
+    sixthLine: 'SUPPORT',
+    seventhLine: 'Community Guidelines',
+    eighthLine: 'Help Center',
+    ninthLine: 'Sitemap',
+  },
+  {
+    firstLine: 'FOLLOW DROP',
+    secondeLine: '',
+    thirdLine: '',
+    fourthLine: '',
+    fifthLine: '',
+    sixthLine: '',
+    seventhLine: '',
+    eighthLine: '',
+    ninthLine: '',
+  },
+];
+
+export default FOOTER_DATA;
