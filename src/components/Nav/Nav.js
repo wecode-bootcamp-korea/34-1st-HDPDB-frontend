@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Nav.scss';
 
 const Nav = () => {
-  const [mechKeysSubMenu, setMechKeysSubMenu] = useState([
+  const [mechKeysSubMenu] = useState([
     {
       id: 0,
       menu: 'Home',
@@ -28,7 +28,7 @@ const Nav = () => {
       menu: 'KEYBOARD_CLUB',
     },
   ]);
-  const [communitySub, setCommunitySub] = useState([
+  const [communitySub] = useState([
     {
       id: 0,
       menu: 'Home',
