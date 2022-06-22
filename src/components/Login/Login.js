@@ -2,7 +2,7 @@ import React from 'react';
 import './Login.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const Login = ({ data, closeModal }) => {
   const { title, subtitle, facebook, google, btn, text, footer } = data;
@@ -12,27 +12,6 @@ const Login = ({ data, closeModal }) => {
   });
   const [idCheck, setIdCheck] = useState('');
   const [pwCheck, setPwCheck] = useState('');
-
-  const [titleConvert, setTitleConvert] = useState([]);
-  // useEffect(() => {
-  //   const SighUpTitle = {
-  //     title: 'GET $10 OFF',
-  //     facebook: 'LOG IN WITH FACEBOOK',
-  //     google: 'Continue with Google',
-  //     btn: 'Continue',
-  //     text: 'We will never spam you or sell your email to third parties.',
-  //     footer: 'Already a member? Log In',
-  //   };
-  //   const loginTitle = {
-  //     title: 'Log In To Drop',
-  //     facebook: 'LOG IN WITH FACEBOOK',
-  //     google: 'LOG IN WITH GOOGLE',
-  //     btn: 'LOG IN',
-  //     text: 'I FORGOT MY PASSWORD',
-  //     footer: 'Not a member yet? Sign up',
-  //   };
-  //   setTitleConvert(loginTitle);
-  // }, []);
 
   const saveLoginInfo = e => {
     const { name, value } = e.target;
@@ -85,7 +64,7 @@ const Login = ({ data, closeModal }) => {
               {google}
             </button>
           </div>
-          <div className="devide_line" />
+          <div className="divide_line" />
           <form className="login_form">
             <div className="email_box">
               <span className="email_span">Email</span>
@@ -127,23 +106,3 @@ const Login = ({ data, closeModal }) => {
 };
 
 export default Login;
-
-const SIGNUP_DATA = {
-  title: 'GET $10 OFF',
-  subtitle:
-    'Sign up and get $10 off your first Drop Studio purchase. Check your inbox to redeem.',
-  facebook: 'Continue WITH FACEBOOK',
-  google: 'Continue with Google',
-  btn: 'Continue',
-  text: 'We will never spam you or sell your email to third parties.',
-  footer: 'Already a member? Log In',
-};
-
-const LOGIN_DATA = {
-  title: 'Log In To Drop',
-  facebook: 'LOG IN WITH FACEBOOK',
-  google: 'LOG IN WITH GOOGLE',
-  btn: 'LOG IN',
-  text: 'I FORGOT MY PASSWORD',
-  footer: 'Not a member yet? Sign up',
-};
