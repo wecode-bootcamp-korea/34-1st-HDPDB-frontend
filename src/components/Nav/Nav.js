@@ -2,49 +2,92 @@ import React, { useEffect, useState } from 'react';
 import './Nav.scss';
 
 const Nav = () => {
+  const [mechKeysSubMenu, setMechKeysSubMenu] = useState([
+    {
+      id: 0,
+      menu: 'Home',
+    },
+    {
+      id: 1,
+      menu: 'SHOP',
+    },
+    {
+      id: 2,
+      menu: 'COMMUNITY',
+    },
+    {
+      id: 3,
+      menu: 'CONFIGURATOR',
+    },
+    {
+      id: 4,
+      menu: 'BUILDER',
+    },
+    {
+      id: 5,
+      menu: 'KEYBOARD_CLUB',
+    },
+  ]);
+  const [communitySub, setCommunitySub] = useState([
+    {
+      id: 0,
+      menu: 'Home',
+    },
+    {
+      id: 1,
+      menu: 'SHOP',
+    },
+    {
+      id: 2,
+      menu: 'COMMUNITY',
+    },
+  ]);
   const [serchModal, setSearchModal] = useState(false);
 
-  useEffect(() => {});
+  const setSerchModalStatus = () => {
+    setSearchModal(!serchModal);
+  };
+
   return (
-    <div className="Nav">
+    <div className="nav">
       <div className="nav_menu">
         <h1 className="header_logo">
           <img
             className="leader_logo_image"
             src="/images/logo/dropCI-black.png"
-            alt="DROP LOGO"
+            alt="drop logo"
           />
         </h1>
         <ul className="header_shop_nav">
-          <li className="nav_shop">SHOP</li>
-          <li className="nav_mechKeys">
-            MECH KEYS
+          <li className="nav_underLine nav_shop">SHOP</li>
+          <li className="nav_underLine nav_mechKeys">
+            MECH_KEYS
             <ul className="header_sub_nav mechKyes_sub">
-              <li>HOME</li>
-              <li>SHOP</li>
-              <li>COMMUNITY</li>
-              <li>CONFIGURATOR</li>
-              <li>BUILDER</li>
-              <li>KEYBOARD_CLUB</li>
+              {mechKeysSubMenu.map(menu => {
+                return (
+                  <li key={menu.id} className="mechKyesSub_menu nav_underLine">
+                    {menu.menu}
+                  </li>
+                );
+              })}
             </ul>
           </li>
-          <li className="nav_audophile">
+          <li className="nav_underLine nav_audophile">
             AUDIOPHILE
             <ul className="header_sub_nav community_sub">
-              <li>HOME</li>
-              <li>SHOP</li>
-              <li>COMMUNITY</li>
+              {communitySub.map(menu => {
+                return (
+                  <li key={menu.id} className="communitySub_menu nav_underLine">
+                    {menu.menu}
+                  </li>
+                );
+              })}
             </ul>
           </li>
-          <li className="nav_community">COMMUNITY</li>
+          <li className="nav_underLine nav_community">COMMUNITY</li>
         </ul>
         <ul className="header_user_nav">
-          <li
-            className="header_search"
-            onClick={() => {
-              setSearchModal(!serchModal);
-            }}
-          >
+          <li className="header_search" onClick={setSerchModalStatus}>
             <img src="/images/icon/icons8-search-24.png" alt="search" />
           </li>
           <li className="header_alert">

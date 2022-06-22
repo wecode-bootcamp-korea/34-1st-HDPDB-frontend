@@ -1,20 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-@import '../../styles/common.scss';
 
-.Nav {
-  width: 100%;
-  height: 70px;
-  border-bottom: #eeeeee 1px solid;
+.nav {
   display: flex;
   justify-content: center;
+  width: 100%;
+  height: 70px;
   color: #222222;
+  border-bottom: #eeeeee 1px solid;
   font-weight: 700;
 
   .nav_menu {
-    width: 1440px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 1440px;
 
     .header_logo {
       flex: 1;
@@ -26,10 +25,10 @@
     }
 
     .header_shop_nav {
-      flex: 10;
       display: flex;
+      flex: 10;
 
-      li {
+      .nav_underLine {
         position: relative;
         margin: 0 35px;
         font-family: 'Roboto', sans-serif;
@@ -41,25 +40,25 @@
         }
 
         &:hover .header_sub_nav {
+          position: absolute;
           display: flex;
           align-items: center;
-          position: absolute;
-          background-color: #222222;
-          color: white;
           height: 70px;
           top: 100%;
+          background-color: #222222;
+          color: white;
           z-index: 2;
         }
       }
 
       li:before {
         content: '';
-        position: absolute; /*부모 요소에는 position: relative를 주어야 한다.*/
+        position: absolute;
+        height: 4px;
+        width: 0;
+        bottom: 20px;
         background-color: #fdcf41;
-        height: 4px; /*밑줄 굵기*/
-        width: 0; /*초기에 보이지 않도록*/
-        bottom: 20px; /*a태그 아래에 위치시키기*/
-        transition: 0.3s; /*애니메이션 동작 실행 시간 정의*/
+        transition: 0.3s;
       }
 
       li:hover:before {
@@ -68,13 +67,13 @@
     }
 
     .header_user_nav {
-      flex: 4;
+      position: relative;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      cursor: pointer;
+      flex: 4;
       font-family: 'Roboto', sans-serif;
-      position: relative;
+      cursor: pointer;
 
       .header_search,
       .heder_alert,
@@ -110,13 +109,13 @@
         position: relative;
 
         .dotAlert {
-          background-color: #e3352c;
+          position: absolute;
           width: 6px;
           height: 6px;
-          border-radius: 50%;
-          position: absolute;
           right: -1px;
           top: -4px;
+          border-radius: 50%;
+          background-color: #e3352c;
         }
       }
 
@@ -124,37 +123,37 @@
         position: relative;
 
         .dotAlert {
-          background-color: #e3352c;
+          position: absolute;
           width: 6px;
           height: 6px;
-          border-radius: 50%;
-          position: absolute;
           right: -2px;
           top: -4px;
+          border-radius: 50%;
+          background-color: #e3352c;
         }
       }
 
       .header_user {
         position: relative;
-        height: 70px;
         display: flex;
         align-items: center;
+        height: 70px;
 
         .user_subMenu {
-          display: none;
           position: absolute;
+          display: none;
           padding: 20px;
           width: 100px;
           top: 100%;
           right: 50%;
-          transform: translate(50%);
           border: 1px solid #eeeeee;
           background-color: white;
+          transform: translaste(50%);
 
           li {
+            margin-bottom: 16px;
             font-weight: 400;
             font-size: 14px;
-            margin-bottom: 16px;
             transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
           }
           .user_subMenu_logOut {
@@ -174,33 +173,32 @@
   }
 
   .serchBar_section {
-    width: 100%;
     position: absolute;
+    width: 100%;
     margin-top: 70px;
 
     .serchBar_form {
-      padding-top: 10px;
-      margin: 0 auto;
+      position: relative;
       width: 1440px;
       height: 50px;
-      padding-top: 8px;
-      position: relative;
+      padding-top: 10px;
+      margin: 0 auto;
 
       .serchBar_input {
         width: 100%;
         height: 38px;
-        border: none;
-        outline: none;
         padding-left: 35px;
+        border: none;
         border-bottom: 2px solid #222222;
+        outline: none;
       }
       .serchBar_icon {
         position: absolute;
+        width: 22px;
         left: 5px;
         top: 14px;
-        font-weight: 400;
         opacity: 0.5;
-        width: 22px;
+        font-weight: 400;
       }
     }
   }
