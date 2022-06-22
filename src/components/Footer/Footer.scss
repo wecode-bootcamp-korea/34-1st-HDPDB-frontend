@@ -1,13 +1,6 @@
-@import url(../../styles/variables.scss);
-
-footer {
+.foo {
   display: flex;
   flex-direction: column;
-}
-
-li,
-ul {
-  margin-bottom: 10px;
 }
 
 .drop_logo {
@@ -16,22 +9,12 @@ ul {
   height: 36px;
 }
 
-li {
-  &:hover {
-    color: #efbf37;
-  }
-
-  &:first-child {
-    pointer-events: none;
-  }
-}
-
 .footer_container {
   display: flex;
-  justify-content: flex-start;
-  color: white;
-  background-color: #222222;
   padding: 40px 0px 200px 0px;
+  justify-content: flex-start;
+  background-color: #222222;
+  color: white;
 }
 
 .footer_detail {
@@ -44,15 +27,21 @@ li {
 
   li {
     margin-bottom: 15px;
+
+    &:hover {
+      color: #efbf37;
+    }
+
+    &:first-child {
+      pointer-events: none;
+    }
   }
 }
-
-.footer_icon {
+.footer_sns_logo {
+  position: absolute;
+  margin: 60px 0 0 1250px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  img {
+  .footer_icon {
     margin-right: 20px;
     width: 50px;
     -webkit-filter: opacity(0.5) drop-shadow(0 0 0 white);
