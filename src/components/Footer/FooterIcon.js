@@ -1,8 +1,8 @@
 const FooterIcon = ({ iconName, iconPath }) => {
   return (
-    <div>
-      <img className="footer_icon" alt={iconName} src={iconPath} />
-    </div>
+    <li className="footer_icon">
+      <img alt={iconName} src={iconPath} />
+    </li>
   );
 };
 export default FooterIcon;

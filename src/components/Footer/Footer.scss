@@ -1,63 +1,83 @@
-.foo {
+.footer {
   display: flex;
   flex-direction: column;
-}
 
-.drop_logo {
-  position: relative;
-  width: 145px;
-  height: 36px;
-}
+  .footer_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    background-color: #222222;
+    color: white;
+    padding: 70px;
 
-.footer_container {
-  display: flex;
-  padding: 40px 0px 200px 0px;
-  justify-content: flex-start;
-  background-color: #222222;
-  color: white;
-}
-
-.footer_detail {
-  :first-child {
-    font-size: 20px;
-    font-weight: 700;
-  }
-
-  margin-bottom: 50px;
-
-  li {
-    margin-bottom: 15px;
-
-    &:hover {
-      color: #efbf37;
+    .footer_box_logo {
+      width: 20%;
+      padding-right: 20px;
     }
 
-    &:first-child {
-      pointer-events: none;
+    .footer_box {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: 40px;
+      width: 60%;
+
+      &:first-child {
+        margin: 0px 80px 0px 80px;
+      }
+      .footer_box_content {
+        width: 30%;
+        padding: 0 15px;
+      }
+
+      .drop_logo {
+        width: 145px;
+        height: 36px;
+        padding: 10px;
+        position: relative;
+      }
+
+      .footer_detail {
+        :first-child {
+          font-size: 20px;
+          font-weight: 700;
+        }
+
+        margin-bottom: 50px;
+
+        li {
+          margin-bottom: 15px;
+
+          &:hover {
+            color: #efbf37;
+          }
+
+          &:first-child {
+            pointer-events: none;
+          }
+        }
+      }
     }
-  }
-}
-.footer_sns_logo {
-  position: absolute;
-  margin: 60px 0 0 1250px;
-  display: flex;
-  .footer_icon {
-    margin-right: 20px;
-    width: 50px;
-    -webkit-filter: opacity(0.5) drop-shadow(0 0 0 white);
-    filter: opacity(0.5) drop-shadow(0 0 0 white);
 
-    &:hover {
-      -webkit-filter: opacity(0.8) drop-shadow(0 0 0 #efbf37);
-      filter: opacity(0.8) drop-shadow(0 0 0 #efbf37);
+    .footer_sns_logo {
+      align-items: center;
+
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      .footer_icon {
+        display: flex;
+        flex-direction: column;
+        margin-right: 20px;
+        width: 50px;
+        -webkit-filter: opacity(0.5) drop-shadow(0 0 0 white);
+        filter: opacity(0.5) drop-shadow(0 0 0 white);
+
+        &:hover {
+          -webkit-filter: opacity(0.8) drop-shadow(0 0 0 #efbf37);
+          filter: opacity(0.8) drop-shadow(0 0 0 #efbf37);
+        }
+      }
     }
-  }
-}
-
-.footer_box {
-  margin-right: 40px;
-
-  &:first-child {
-    margin: 0px 80px 0px 80px;
   }
 }
