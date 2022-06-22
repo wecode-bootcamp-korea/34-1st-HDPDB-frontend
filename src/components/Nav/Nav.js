@@ -48,11 +48,11 @@ const Nav = () => {
             <img src="/images/icon/icons8-search-24.png" alt="search" />
           </li>
           <li className="header_alert">
-            <div className="header_alert_alert dotAlert"></div>
-            <img src="/images/icon/icons8-bell-24.png" />
+            <div className="header_alert_alert dotAlert" />
+            <img src="/images/icon/icons8-bell-24.png" alt="알람아이콘" />
           </li>
           <li className="header_cart">
-            <div className="header_cart_alert dotAlert"></div>
+            <div className="header_cart_alert dotAlert" />
             <img src="/images/icon/icons8-shopping-cart-96.png" alt="search" />
           </li>
           <li className="header_login">LOG IN</li>
@@ -74,11 +74,12 @@ const Nav = () => {
               className="serchBar_input"
               type="text"
               placeholder="Search..."
-            ></input>
+            />
             <img
               className="serchBar_icon"
               src="/images/icon/icons8-search-24.png"
-            ></img>
+              alt="검색 아이콘"
+            />
           </form>
         </div>
       ) : null}
