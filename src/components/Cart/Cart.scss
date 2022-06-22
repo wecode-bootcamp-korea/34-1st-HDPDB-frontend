@@ -1,0 +1,131 @@
+.main {
+  display: flex;
+  justify-content: flex-end;
+}
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.cart {
+  position: relative;
+  background-color: white;
+  z-index: 11;
+  padding: 20px;
+  width: 400px;
+  height: 100vh;
+
+  .checkout_btn {
+    width: 360px;
+    height: 46px;
+    background-color: #222222;
+    border: none;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+  }
+  .checkout_btn:hover {
+    background-color: #fdcf41;
+    transition: ease-in-out 0.5s;
+    color: #222222;
+  }
+
+  .total_price_box {
+    margin-top: 430px;
+    border-top: 1px solid black;
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .items {
+    margin-top: 20px;
+    display: flex;
+    margin-bottom: 10px;
+    border-bottom: 1px solid black;
+
+    .items_img {
+      width: 86px;
+      height: 86px;
+    }
+    .items_description {
+      display: flex;
+      flex-direction: column;
+      margin: 5px 0 0 10px;
+
+      .items_option {
+        margin-top: 5px;
+        font-size: 14px;
+      }
+    }
+
+    .items_delete_price {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-left: 90px;
+
+      .items_remove {
+        border: none;
+        background-color: white;
+        text-decoration: underline;
+        font-size: 15px;
+        font-weight: 300;
+      }
+    }
+  }
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+
+    .close_btn {
+      background-color: white;
+      border: none;
+      font-size: 20px;
+    }
+
+    .title_header {
+      font-weight: 700;
+      font-size: 20px;
+      margin-right: 10px;
+    }
+    .title_text {
+      font-size: 14px;
+    }
+  }
+
+  .btn_box {
+    button {
+      width: 345px;
+      height: 46px;
+      padding: 0 22px;
+      margin: 30px 0 10px 0;
+      background-color: white;
+      border: 1px solid #d9d5d2;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: crosshair;
+    }
+
+    .cart_btn:hover {
+      background-color: #fdcf41;
+      transition: ease-in-out 0.5s;
+    }
+
+    .cart_firstbtn {
+      background: #222222;
+      color: white;
+    }
+    .cart_firstbtn:hover {
+      background-color: #fdcf41;
+      color: black;
+      transition: ease-in-out 0.5s;
+    }
+  }
+}
