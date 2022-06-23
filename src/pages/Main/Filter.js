@@ -8,10 +8,12 @@ const Filter = () => {
         <ul className="category-nav">
           {FEATURED_LIST.map(el => {
             return (
-              <li className="category-nav-list " key={el.id}>
-                {el.listName}
-                <span className="itemCount">({el.count})</span>
-              </li>
+              <div className="underLine">
+                <li className="category-nav-list " key={el.id}>
+                  {el.listName}
+                  <span className="itemCount">({el.count})</span>
+                </li>
+              </div>
             );
           })}
         </ul>

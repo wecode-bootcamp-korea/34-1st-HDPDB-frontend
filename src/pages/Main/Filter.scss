@@ -13,36 +13,37 @@
     }
 
     .category-nav {
-      position: relative;
-      display: flex;
-      flex-direction: column;
       padding-top: 10px;
 
-      .category-nav-list {
-        display: inline;
-        padding-bottom: 5px 0;
-        margin: 20px 0;
-        font-size: 14px;
-        cursor: pointer;
+      .underLine {
+        position: relative;
 
-        .itemCount {
-          margin-left: 5px;
-          font-size: 12px;
+        .category-nav-list {
+          display: inline-block;
+          background-color: bisque;
+          padding-bottom: 5px 0;
+          margin: 20px 0;
+          font-size: 14px;
+          cursor: pointer;
+
+          .itemCount {
+            margin-left: 5px;
+            font-size: 12px;
+          }
         }
       }
-
-      .category-nav-list:before {
-        content: '';
-        position: absolute;
-        background-color: crimson;
-        height: 2px;
-        width: 0;
-        bottom: 0;
-        transition: 0.7s;
-      }
-      .category-nav-list:hover:before {
-        width: 100%;
-      }
+    }
+    .underLine:before {
+      content: '';
+      position: absolute;
+      background-color: crimson;
+      height: 2px;
+      width: 0;
+      bottom: 0;
+      transition: 0.7s;
+    }
+    .underLine:hover:before {
+      width: 100%;
     }
   }
 }
