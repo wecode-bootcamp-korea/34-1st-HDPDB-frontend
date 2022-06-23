@@ -7,8 +7,8 @@ import { useState } from 'react';
 const Login = ({ data, closeModal }) => {
   const { title, subtitle, facebook, google, btn, text, footer } = data;
   const [loginInfo, setLoginInfo] = useState({
-    id: '',
-    pw: '',
+    email: '',
+    password: '',
   });
   const [idCheck, setIdCheck] = useState('');
   const [pwCheck, setPwCheck] = useState('');
@@ -19,12 +19,12 @@ const Login = ({ data, closeModal }) => {
   };
 
   const idCondition =
-    loginInfo.id.includes('@') &&
-    loginInfo.id.length > 5 &&
-    loginInfo.id.includes('.');
+    loginInfo.email.includes('@') &&
+    loginInfo.email.length > 5 &&
+    loginInfo.email.includes('.');
 
   const IdChecked = () => {
-    if (loginInfo.id.length === 0) {
+    if (loginInfo.email.length === 0) {
       setIdCheck('This field is required');
     } else if (!idCondition) {
       setIdCheck('Not a valid email address');
@@ -34,7 +34,7 @@ const Login = ({ data, closeModal }) => {
   };
   const pwChecked = () => {
     if (idCondition) {
-      if (loginInfo.pw.length === 0) {
+      if (loginInfo.password.length === 0) {
         setPwCheck('This field is required');
       } else {
         setPwCheck('');
@@ -72,7 +72,7 @@ const Login = ({ data, closeModal }) => {
                 type="text"
                 className="login_id_input"
                 placeholder="Email"
-                name="id"
+                name="email"
                 onKeyUp={IdChecked}
                 onChange={saveLoginInfo}
               />
@@ -84,7 +84,7 @@ const Login = ({ data, closeModal }) => {
                 type="password"
                 className="login_pw_input"
                 placeholder="Password"
-                name="pw"
+                name="password"
                 onKeyUp={pwChecked}
                 onChange={saveLoginInfo}
               />
@@ -92,7 +92,23 @@ const Login = ({ data, closeModal }) => {
             </div>
           </form>
           <div className="login_continue_box">
-            <button className="login_continue_btn"> {btn}</button>
+            <button
+              onClick={() => {
+                fetch('http://10.58.4.235:8000/users/signin', {
+                  method: 'POST',
+                  body: JSON.stringify({
+                    email: loginInfo.email,
+                    password: loginInfo.password,
+                  }),
+                })
+                  .then(res => res.json())
+                  .then(data => console.log(data));
+              }}
+              className="login_continue_btn"
+            >
+              {' '}
+              {btn}
+            </button>
           </div>
           <div className="login_footer">
             <span className="login_footer_span">{text}</span>

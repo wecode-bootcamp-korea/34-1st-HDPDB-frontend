@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 @mixin column {
   display: flex;
   flex-direction: column;
@@ -46,7 +48,7 @@
       margin-bottom: 20px;
 
       a {
-        color: black;
+        color: $buttonColorBlack;
         text-decoration: none;
         margin-left: 5px;
       }
@@ -113,15 +115,15 @@
       height: 46px;
       color: white;
       border: none;
-      background-color: black;
+      background-color: $buttonColorBlack;
       font-weight: 700;
       font-size: 16px;
       margin-bottom: 20px;
     }
     .login_continue_btn:hover {
-      background-color: #fdcf41;
+      background-color: $buttonColorYellow;
       transition: ease-in-out 0.5s;
-      color: black;
+      color: $buttonColorBlack;
       cursor: pointer;
     }
 
@@ -181,7 +183,7 @@
         font-weight: 500;
         background-color: white;
         margin-bottom: 25px;
-        border: 1px outset black;
+        border: 1px outset $buttonColorBlack;
         position: relative;
 
         .google {
