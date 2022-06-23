@@ -2,46 +2,6 @@ import React, { useState } from 'react';
 import './Nav.scss';
 
 const Nav = () => {
-  const [mechKeysSubMenu] = useState([
-    {
-      id: 0,
-      menu: 'Home',
-    },
-    {
-      id: 1,
-      menu: 'SHOP',
-    },
-    {
-      id: 2,
-      menu: 'COMMUNITY',
-    },
-    {
-      id: 3,
-      menu: 'CONFIGURATOR',
-    },
-    {
-      id: 4,
-      menu: 'BUILDER',
-    },
-    {
-      id: 5,
-      menu: 'KEYBOARD_CLUB',
-    },
-  ]);
-  const [communitySub] = useState([
-    {
-      id: 0,
-      menu: 'Home',
-    },
-    {
-      id: 1,
-      menu: 'SHOP',
-    },
-    {
-      id: 2,
-      menu: 'COMMUNITY',
-    },
-  ]);
   const [serchModal, setSearchModal] = useState(false);
 
   const setSerchModalStatus = () => {
@@ -63,7 +23,7 @@ const Nav = () => {
           <li className="nav_underLine nav_mechKeys">
             MECH_KEYS
             <ul className="header_sub_nav mechKyes_sub">
-              {mechKeysSubMenu.map(menu => {
+              {MECH_KEYS_SUB_MENU.map(menu => {
                 return (
                   <li key={menu.id} className="mechKyesSub_menu nav_underLine">
                     {menu.menu}
@@ -75,7 +35,7 @@ const Nav = () => {
           <li className="nav_underLine nav_audophile">
             AUDIOPHILE
             <ul className="header_sub_nav community_sub">
-              {communitySub.map(menu => {
+              {COMMUNITY_SUB.map(menu => {
                 return (
                   <li key={menu.id} className="communitySub_menu nav_underLine">
                     {menu.menu}
@@ -103,9 +63,13 @@ const Nav = () => {
           <li className="header_user">
             <img src="/images/icon/icons8-user-96.png" alt="search" />
             <ul className="user_subMenu">
-              <li className="user_subMenu_profile">Profile</li>
-              <li className="user_subMenu_setting">Setting</li>
-              <li className="user_subMenu_logOut">Logout</li>
+              <li className="user_subMenu_profile user_subMenu_line">
+                Profile
+              </li>
+              <li className="user_subMenu_setting user_subMenu_line">
+                Setting
+              </li>
+              <li className="user_subMenu_logOut user_subMenu_line">Logout</li>
             </ul>
           </li>
         </ul>
@@ -131,3 +95,45 @@ const Nav = () => {
 };
 
 export default Nav;
+
+const MECH_KEYS_SUB_MENU = [
+  {
+    id: 0,
+    menu: 'Home',
+  },
+  {
+    id: 1,
+    menu: 'SHOP',
+  },
+  {
+    id: 2,
+    menu: 'COMMUNITY',
+  },
+  {
+    id: 3,
+    menu: 'CONFIGURATOR',
+  },
+  {
+    id: 4,
+    menu: 'BUILDER',
+  },
+  {
+    id: 5,
+    menu: 'KEYBOARD_CLUB',
+  },
+];
+
+const COMMUNITY_SUB = [
+  {
+    id: 0,
+    menu: 'Home',
+  },
+  {
+    id: 1,
+    menu: 'SHOP',
+  },
+  {
+    id: 2,
+    menu: 'COMMUNITY',
+  },
+];
