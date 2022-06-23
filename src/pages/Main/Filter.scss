@@ -1,0 +1,28 @@
+.filter {
+  width: 320px;
+
+  .category-section {
+    padding-bottom: 43px;
+    .category-title {
+      width: 100%;
+      padding-bottom: 5px;
+      font-weight: 700;
+      border-bottom: 1px solid #9f9ea6;
+    }
+
+    .category-nav {
+      padding-top: 10px;
+
+      .category-nav-list {
+        line-height: 42px;
+        font-size: 14px;
+        cursor: pointer;
+
+        .itemCount {
+          margin-left: 5px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
