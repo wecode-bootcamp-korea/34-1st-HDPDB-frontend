@@ -3,6 +3,7 @@ import './Cart.scss';
 
 const Cart = ({ closeCart }) => {
   const [cartList, setCartList] = useState([]);
+  const [totalPrice, setTotalPrice] = useState([]);
 
   useEffect(() => {
     fetch('/data/itemsData.json')
@@ -28,7 +29,7 @@ const Cart = ({ closeCart }) => {
           <div className="title">
             <div className="title_span_box">
               <span className="title_header"> YOUR CART</span>
-              <span className="title_text">is empty! </span>
+              {/* <span className="title_text"></span> */}
             </div>
             <button className="close_btn" onClick={closeCart}>
               X
@@ -40,7 +41,13 @@ const Cart = ({ closeCart }) => {
         <div className="cart_footer">
           <div className="total_price_box">
             <span className="total_text">Estimated total</span>
-            <span className="total_price"> 22 </span>
+            <span className="total_price">
+              {'$ '}
+              {cartList.reduce((a, b) => {
+                return a + b.price * b.quantity;
+              }, 0)}
+              {'.00 '}
+            </span>
           </div>
           <button className="checkout_btn">CHECKOUT</button>
         </div>
@@ -79,7 +86,7 @@ const CartItems = ({ cartList, handleRemove }) => {
               </span>
               <div className="count_btn">
                 {' '}
-                <button>-</button> {el.amount} <button>+</button>{' '}
+                <button>-</button> {el.quantity} <button>+</button>{' '}
               </div>
             </div>
             <div className="items_delete_price">
@@ -92,7 +99,9 @@ const CartItems = ({ cartList, handleRemove }) => {
               >
                 Remove
               </button>
-              <span className="items_price">{el.price}</span>
+              <span className="items_price">{`$ ${
+                el.price * el.quantity
+              }.00`}</span>
             </div>
           </div>
         );
