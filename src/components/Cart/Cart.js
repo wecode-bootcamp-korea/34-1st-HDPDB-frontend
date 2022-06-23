@@ -3,7 +3,6 @@ import './Cart.scss';
 
 const Cart = ({ closeCart }) => {
   const [cartList, setCartList] = useState([]);
-  const [totalPrice, setTotalPrice] = useState([]);
 
   useEffect(() => {
     fetch('/data/itemsData.json')

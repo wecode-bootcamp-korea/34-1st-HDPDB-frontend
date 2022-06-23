@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .main {
   display: flex;
   justify-content: flex-end;
@@ -33,13 +35,20 @@
     color: white;
     font-weight: 700;
     font-size: 16px;
-  }
-  .checkout_btn:hover {
-    background-color: #fdcf41;
-    transition: ease-in-out 0.5s;
-    color: #222222;
-  }
-  .cart_footer {
+
+    &:hover {
+      background-color: $buttonColorYellow;
+      transition: ease-in-out 0.5s;
+      color: $buttonColorBlack;
+      background: linear-gradient(
+        to left,
+        $buttonColorYellow 50%,
+        $buttonColorBlack 50%
+      );
+      background-size: 200% 100%;
+      background-position: right bottom;
+      // transition: all 0.5s ease-out;
+    }
   }
 
   .total_price_box {
