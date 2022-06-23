@@ -14,7 +14,7 @@ const Footer = () => {
             className="drop_logo"
             alt="Drop logo"
             src="../images/logo/dropCI-white.png"
-          ></img>
+          />
         </div>
         <div className="footer_box">
           {FooterData.map(value => (
@@ -28,7 +28,6 @@ const Footer = () => {
             />
           ))}
         </div>
-
         <div className="footer_sns_logo">
           <h1 style={{ fontSize: '20px', fontWeight: '700' }}>FOLLOW DROP</h1>
           <ul style={{ display: 'flex' }}>
