@@ -119,12 +119,20 @@
       font-weight: 700;
       font-size: 16px;
       margin-bottom: 20px;
-    }
-    .login_continue_btn:hover {
-      background-color: $buttonColorYellow;
-      transition: ease-in-out 0.5s;
-      color: $buttonColorBlack;
-      cursor: pointer;
+
+      &:hover {
+        background-color: $buttonColorYellow;
+        transition: ease-in-out 0.5s;
+        color: $buttonColorBlack;
+        background: linear-gradient(
+          to left,
+          $buttonColorYellow 50%,
+          $buttonColorBlack 50%
+        );
+        background-size: 200% 100%;
+        background-position: right bottom;
+        cursor: pointer;
+      }
     }
 
     .divide_line {

@@ -3,7 +3,7 @@ import React from 'react';
 import './Main.scss';
 
 const Main = () => {
-  return ();
+  return <></>;
 };
 
 export default Main;
