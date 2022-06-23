@@ -4,11 +4,11 @@ const Filter = () => {
   return (
     <aside className="filter">
       <div className="category-section featured">
-        <h3 className="category-title">FEATURED</h3>
+        <h3 className="category-title ">FEATURED</h3>
         <ul className="category-nav">
           {FEATURED_LIST.map(el => {
             return (
-              <li className="category-nav-list" key={el.id}>
+              <li className="category-nav-list " key={el.id}>
                 {el.listName}
                 <span className="itemCount">({el.count})</span>
               </li>
@@ -17,11 +17,11 @@ const Filter = () => {
         </ul>
       </div>
       <div className="category-section categories">
-        <h3 className="category-title">CATEGORIES</h3>
+        <h3 className="category-title ">CATEGORIES</h3>
         <ul className="category-nav">
           {CATEGORIES.map(el => {
             return (
-              <li className="category-nav-list" key={el.id}>
+              <li className="category-nav-list " key={el.id}>
                 {el.listName}
                 <span className="itemCount">({el.count})</span>
               </li>
@@ -34,7 +34,7 @@ const Filter = () => {
         <ul className="category-nav">
           {SHOP_BY_PRICE.map(el => {
             return (
-              <li className="category-nav-list" key={el.id}>
+              <li className="category-nav-list " key={el.id}>
                 <input type="checkbox" /> {el.listName}
                 <span className="itemCount">({el.count})</span>
               </li>
@@ -47,7 +47,7 @@ const Filter = () => {
         <ul className="category-nav">
           {SHOP_BY_PRODUCT_STAGE.map(el => {
             return (
-              <li className="category-nav-list" key={el.id}>
+              <li className="category-nav-list " key={el.id}>
                 <input type="checkbox" /> {el.listName}
                 <span className="itemCount">({el.count})</span>
               </li>
