@@ -1,31 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Cart.scss';
 
-const Cart = () => {
-  const [CartList, setCartList] = useState([]);
+const Cart = ({ closeCart }) => {
+  const [cartList, setCartList] = useState([]);
 
-  fetch('/data/itemsData.json')
-    .then(res => res.json())
-    .then(data => setCartList(data));
+  useEffect(() => {
+    fetch('/data/itemsData.json')
+      .then(res => res.json())
+      .then(data => setCartList(data));
+  }, []);
 
+  const handleRemove = id => {
+    const newList = cartList.filter(el => el.id !== id);
+    setCartList(newList);
+  };
+
+  // setCartList(items => {
+  //   return items.filter(el => {
+  //     return el.id !== id;
+  //   });
+  // });
   return (
     <div className="main">
       <div className="overlay" />
       <div className="cart">
-        <div className="title">
-          <div className="title_span_box">
-            <span className="title_header"> YOUR CART</span>
-            <span className="title_text">is empty! </span>
+        <div className="cart_header">
+          <div className="title">
+            <div className="title_span_box">
+              <span className="title_header"> YOUR CART</span>
+              <span className="title_text">is empty! </span>
+            </div>
+            <button className="close_btn" onClick={closeCart}>
+              X
+            </button>
           </div>
-          <button className="close_btn">X</button>
+          {/* <CartBtn /> */}
+          <CartItems cartList={cartList} handleRemove={handleRemove} />
         </div>
-        {/* <CartBtn /> */}
-        <CartItems CartList={CartList} />
-        <div className="total_price_box">
-          <span className="total_text">Estimated total</span>
-          <span className="total_price"> 22 </span>
+        <div className="cart_footer">
+          <div className="total_price_box">
+            <span className="total_text">Estimated total</span>
+            <span className="total_price"> 22 </span>
+          </div>
+          <button className="checkout_btn">CHECKOUT</button>
         </div>
-        <button className="checkout_btn">CHECKOUT</button>
       </div>
     </div>
   );
@@ -45,12 +63,12 @@ const CartBtn = () => {
   );
 };
 
-const CartItems = ({ CartList }) => {
+const CartItems = ({ cartList, handleRemove }) => {
   return (
     <>
-      {CartList.map(el => {
+      {cartList.map(el => {
         return (
-          <div className="items">
+          <div className="items" key={el.id}>
             <img src={el.img} alt="item" className="items_img" />
             <div className="items_description">
               <span className="items_name">{el.products}</span>
@@ -59,9 +77,21 @@ const CartItems = ({ CartList }) => {
                 {` / `}
                 {el.option}
               </span>
+              <div className="count_btn">
+                {' '}
+                <button>-</button> {el.amount} <button>+</button>{' '}
+              </div>
             </div>
             <div className="items_delete_price">
-              <button className="items_remove">Remove</button>
+              <button
+                type="button"
+                className="items_remove"
+                onClick={() => {
+                  handleRemove(el.id);
+                }}
+              >
+                Remove
+              </button>
               <span className="items_price">{el.price}</span>
             </div>
           </div>

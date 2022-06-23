@@ -13,12 +13,17 @@
 }
 
 .cart {
-  position: relative;
+  position: fixed;
+  top: 0;
+  right: 0;
   background-color: white;
   z-index: 11;
   padding: 20px;
   width: 400px;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   .checkout_btn {
     width: 360px;
@@ -34,9 +39,11 @@
     transition: ease-in-out 0.5s;
     color: #222222;
   }
+  .cart_footer {
+  }
 
   .total_price_box {
-    margin-top: 430px;
+    bottom: 150px;
     border-top: 1px solid black;
     padding-top: 40px;
     display: flex;
@@ -48,6 +55,7 @@
     display: flex;
     margin-bottom: 10px;
     border-bottom: 1px solid black;
+    padding-bottom: 20px;
 
     .items_img {
       width: 86px;
