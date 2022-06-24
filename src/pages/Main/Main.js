@@ -28,7 +28,17 @@ const Main = () => {
         <div className="main_section">
           <Filter />
           <div className="productList">
-            <div className="productList_banner"></div>
+            <div className="productList_banners">
+              <div>dd</div>
+              {banner.map(el => {
+                return (
+                  <div className="productList_banners">
+                    <img src={el.imgURL} alt={el.alt} />
+                    <h3>{el.title}</h3>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
@@ -36,6 +46,13 @@ const Main = () => {
   );
 };
 
-const banner = [{ id: 1, text: 'Mechanical Keyboards', imgURL: '' }];
+const banner = [
+  {
+    id: 1,
+    title: 'Mechanical Keyboards',
+    alt: 'banner keyboard image',
+    imgURL: '/images/pageBanner/16870_Mech-Keys-Builder_Yellow',
+  },
+];
 
 export default Main;
