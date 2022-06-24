@@ -24,29 +24,32 @@ $defaultBorder: 1px solid #eeeeee;
         position: relative;
 
         .category-nav-list {
+          position: relative;
           display: inline-block;
-          padding-bottom: 5px 0;
-          margin: 20px 0;
+          padding-bottom: 3px 0;
+          margin: 15px 0;
           font-size: 14px;
           cursor: pointer;
+
+          &:before {
+            content: '';
+            position: absolute;
+            background-color: $pointColor;
+            height: 4px;
+            width: 0;
+            bottom: 0;
+            margin-bottom: -5px;
+            transition: 0.7s;
+          }
+          &:hover:before {
+            width: 100%;
+          }
 
           .itemCount {
             margin-left: 5px;
             font-size: 12px;
           }
         }
-      }
-      .underLine:before {
-        content: '';
-        position: absolute;
-        background-color: $pointColor;
-        height: 4px;
-        width: 0;
-        bottom: 0;
-        transition: 0.7s;
-      }
-      .underLine:hover:before {
-        width: 100%;
       }
     }
   }

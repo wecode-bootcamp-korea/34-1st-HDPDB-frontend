@@ -8,12 +8,12 @@ const Filter = () => {
         <ul className="category-nav">
           {FEATURED_LIST.map(el => {
             return (
-              <div className="underLine">
-                <li className="category-nav-list " key={el.id}>
+              <li className="underLine" key={el.id}>
+                <div className="category-nav-list">
                   {el.listName}
                   <span className="itemCount">({el.count})</span>
-                </li>
-              </div>
+                </div>
+              </li>
             );
           })}
         </ul>
@@ -23,9 +23,11 @@ const Filter = () => {
         <ul className="category-nav">
           {CATEGORIES.map(el => {
             return (
-              <li className="category-nav-list " key={el.id}>
-                {el.listName}
-                <span className="itemCount">({el.count})</span>
+              <li className="underLine" key={el.id}>
+                <div className="category-nav-list">
+                  {el.listName}
+                  <span className="itemCount">({el.count})</span>
+                </div>
               </li>
             );
           })}
@@ -36,9 +38,13 @@ const Filter = () => {
         <ul className="category-nav">
           {SHOP_BY_PRICE.map(el => {
             return (
-              <li className="category-nav-list " key={el.id}>
-                <input type="checkbox" /> {el.listName}
-                <span className="itemCount">({el.count})</span>
+              <li className="underLine" key={el.id}>
+                <div className="category-nav-list " key={el.id}>
+                  <input type="checkBox" class="filter_checkBox" />
+
+                  {el.listName}
+                  <span className="itemCount">({el.count})</span>
+                </div>
               </li>
             );
           })}
@@ -49,9 +55,13 @@ const Filter = () => {
         <ul className="category-nav">
           {SHOP_BY_PRODUCT_STAGE.map(el => {
             return (
-              <li className="category-nav-list " key={el.id}>
-                <input type="checkbox" /> {el.listName}
-                <span className="itemCount">({el.count})</span>
+              <li className="underLine" key={el.id}>
+                <div className="category-nav-list">
+                  <input type="checkBox" className="filter_checkBox" />
+
+                  {el.listName}
+                  <span className="itemCount">({el.count})</span>
+                </div>
               </li>
             );
           })}
