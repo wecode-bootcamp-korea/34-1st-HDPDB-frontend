@@ -27,10 +27,15 @@ const Main = () => {
         </div>
         <div className="main_section">
           <Filter />
+          <div className="productList">
+            <div className="productList_banner"></div>
+          </div>
         </div>
       </div>
     </div>
   );
 };
+
+const banner = [{ id: 1, text: 'Mechanical Keyboards', imgURL: '' }];
 
 export default Main;
