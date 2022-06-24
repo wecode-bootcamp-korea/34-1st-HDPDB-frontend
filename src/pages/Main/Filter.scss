@@ -1,3 +1,8 @@
+$defaultColor: #222222;
+$pointColor: #fdcf41;
+$red: #e3352c;
+$defaultBorder: 1px solid #eeeeee;
+
 .filter {
   width: 320px;
 
@@ -20,7 +25,6 @@
 
         .category-nav-list {
           display: inline-block;
-          background-color: bisque;
           padding-bottom: 5px 0;
           margin: 20px 0;
           font-size: 14px;
@@ -32,18 +36,18 @@
           }
         }
       }
-    }
-    .underLine:before {
-      content: '';
-      position: absolute;
-      background-color: crimson;
-      height: 2px;
-      width: 0;
-      bottom: 0;
-      transition: 0.7s;
-    }
-    .underLine:hover:before {
-      width: 100%;
+      .underLine:before {
+        content: '';
+        position: absolute;
+        background-color: $pointColor;
+        height: 4px;
+        width: 0;
+        bottom: 0;
+        transition: 0.7s;
+      }
+      .underLine:hover:before {
+        width: 100%;
+      }
     }
   }
 }
