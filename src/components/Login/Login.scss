@@ -25,7 +25,7 @@
   background: rgba(0, 0, 0, 0.3);
   z-index: 10;
 }
-.login_modal {
+.login {
   position: relative;
   text-align: center;
   margin: auto 0;
@@ -170,7 +170,7 @@
       flex-direction: column;
       margin: 0 68px;
 
-      .login_social_span {
+      &_span {
         font-size: 18px;
         margin-bottom: 25px;
       }

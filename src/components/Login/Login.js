@@ -1,8 +1,8 @@
 import React from 'react';
-import './Login.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { useState } from 'react';
+import './Login.scss';
 
 const Login = ({ data, closeModal }) => {
   const { title, subtitle, facebook, google, btn, text, footer } = data;
@@ -11,7 +11,6 @@ const Login = ({ data, closeModal }) => {
     password: '',
   });
   const [idCheck, setIdCheck] = useState('');
-  const [pwCheck, setPwCheck] = useState('');
 
   const saveLoginInfo = e => {
     const { name, value } = e.target;
@@ -23,7 +22,7 @@ const Login = ({ data, closeModal }) => {
     loginInfo.email.length > 5 &&
     loginInfo.email.includes('.');
 
-  const IdChecked = () => {
+  const idChecked = () => {
     if (loginInfo.email.length === 0) {
       setIdCheck('This field is required');
     } else if (!idCondition) {
@@ -32,19 +31,22 @@ const Login = ({ data, closeModal }) => {
       setIdCheck('');
     }
   };
-  const pwChecked = () => {
-    if (idCondition) {
-      if (loginInfo.password.length === 0) {
-        setPwCheck('This field is required');
-      } else {
-        setPwCheck('');
-      }
-    }
-  };
+
+  // const loginInfoTest = () => {
+  //   fetch('http://10.58.4.235:8000/users/signin', {
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       email: loginInfo.email,
+  //       password: loginInfo.password,
+  //     }),
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => console.log(data));
+  // }
 
   return (
     <>
-      <div className="login_modal">
+      <div className="login">
         <div className="login_main">
           <div className="login_title">
             <h2>{title}</h2>
@@ -73,7 +75,7 @@ const Login = ({ data, closeModal }) => {
                 className="login_id_input"
                 placeholder="Email"
                 name="email"
-                onKeyUp={IdChecked}
+                onKeyUp={idChecked}
                 onChange={saveLoginInfo}
               />
               <span className="email_warning">{idCheck}</span>
@@ -85,30 +87,18 @@ const Login = ({ data, closeModal }) => {
                 className="login_pw_input"
                 placeholder="Password"
                 name="password"
-                onKeyUp={pwChecked}
                 onChange={saveLoginInfo}
               />
-              <span className="password_warning">{pwCheck}</span>
+
+              <span className="password_warning">
+                {idCondition && loginInfo.password.length === 0
+                  ? 'This field is required'
+                  : ''}
+              </span>
             </div>
           </form>
           <div className="login_continue_box">
-            <button
-              onClick={() => {
-                fetch('http://10.58.4.235:8000/users/signin', {
-                  method: 'POST',
-                  body: JSON.stringify({
-                    email: loginInfo.email,
-                    password: loginInfo.password,
-                  }),
-                })
-                  .then(res => res.json())
-                  .then(data => console.log(data));
-              }}
-              className="login_continue_btn"
-            >
-              {' '}
-              {btn}
-            </button>
+            <button className="login_continue_btn"> {btn}</button>
           </div>
           <div className="login_footer">
             <span className="login_footer_span">{text}</span>
