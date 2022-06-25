@@ -1,9 +1,9 @@
 import React from 'react';
-import './Footer.scss';
 import FooterBox from './FooterBox';
 import FooterIcon from './FooterIcon';
 import FooterData from './FooterData/footerData';
 import IconData from './FooterData/IconData';
+import './Footer.scss';
 
 const Footer = () => {
   return (
@@ -33,7 +33,7 @@ const Footer = () => {
           <ul style={{ display: 'flex' }}>
             {IconData.map(value => (
               <FooterIcon
-                key={value.icon_name}
+                key={value.id}
                 iconName={value.icon_name}
                 iconPath={value.icon_path}
               />
