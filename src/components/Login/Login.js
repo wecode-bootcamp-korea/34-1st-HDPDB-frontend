@@ -33,6 +33,7 @@ const Login = ({ data, closeModal }) => {
   };
 
   const loginFunction = () => {
+    //로그인 성공시 메인페이지로 연결시킬예정.
     fetch(`http://10.58.4.235:8000/users/${url}`, {
       method: 'POST',
       body: JSON.stringify({
