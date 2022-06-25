@@ -5,7 +5,7 @@ import { useState } from 'react';
 import './Login.scss';
 
 const Login = ({ data, closeModal }) => {
-  const { title, subtitle, facebook, google, btn, text, footer } = data;
+  const { title, subtitle, facebook, google, btn, text, footer, url } = data;
   const [loginInfo, setLoginInfo] = useState({
     email: '',
     password: '',
@@ -32,17 +32,17 @@ const Login = ({ data, closeModal }) => {
     }
   };
 
-  // const loginInfoTest = () => {
-  //   fetch('http://10.58.4.235:8000/users/signin', {
-  //     method: 'POST',
-  //     body: JSON.stringify({
-  //       email: loginInfo.email,
-  //       password: loginInfo.password,
-  //     }),
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => console.log(data));
-  // }
+  const loginFunction = () => {
+    fetch(`http://10.58.4.235:8000/users/${url}`, {
+      method: 'POST',
+      body: JSON.stringify({
+        email: loginInfo.email,
+        password: loginInfo.password,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => localStorage.setItem('access_token', data.access_token));
+  };
 
   return (
     <>
@@ -98,7 +98,10 @@ const Login = ({ data, closeModal }) => {
             </div>
           </form>
           <div className="login_continue_box">
-            <button className="login_continue_btn"> {btn}</button>
+            <button className="login_continue_btn" onClick={loginFunction}>
+              {' '}
+              {btn}
+            </button>
           </div>
           <div className="login_footer">
             <span className="login_footer_span">{text}</span>

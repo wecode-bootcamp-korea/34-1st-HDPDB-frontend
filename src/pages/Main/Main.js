@@ -30,6 +30,7 @@ const SIGNUP_DATA = {
   btn: 'Continue',
   text: 'We will never spam you or sell your email to third parties.',
   footer: 'Already a member? Log In',
+  url: 'signup',
 };
 
 const LOGIN_DATA = {
@@ -39,4 +40,5 @@ const LOGIN_DATA = {
   btn: 'LOG IN',
   text: 'I FORGOT MY PASSWORD',
   footer: 'Not a member yet? Sign up',
+  url: 'signin',
 };
