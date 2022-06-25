@@ -47,7 +47,6 @@
       );
       background-size: 200% 100%;
       background-position: right bottom;
-      // transition: all 0.5s ease-out;
     }
   }
 
@@ -78,6 +77,14 @@
       .items_option {
         margin-top: 5px;
         font-size: 14px;
+      }
+      .quantity_box {
+        border: 1px outset black;
+        width: 66px;
+        button {
+          border: none;
+          background-color: white;
+        }
       }
     }
 

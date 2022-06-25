@@ -83,9 +83,10 @@ const CartItems = ({ cartList, handleRemove }) => {
                 {` / `}
                 {el.option}
               </span>
-              <div className="count_btn">
+              <div className="quantity_box">
                 {' '}
-                <button>-</button> {el.quantity} <button>+</button>{' '}
+                <button className="minus_btn">-</button> {el.quantity}{' '}
+                <button className="plus_btn">+</button>{' '}
               </div>
             </div>
             <div className="items_delete_price">
