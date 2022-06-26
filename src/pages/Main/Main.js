@@ -6,7 +6,7 @@ import ProductList from './ProductList';
 
 const Main = () => {
   const [selectBoxStatus, setSelectBoxStatus] = useState(false);
-  const [selectSortOption, setSelectSortOPtion] = useState('');
+  const [selectSortOption, setSelectSortOPtion] = useState('RECOMMENDED');
   const showSelectBox = () => {
     setSelectBoxStatus(!selectBoxStatus);
   };

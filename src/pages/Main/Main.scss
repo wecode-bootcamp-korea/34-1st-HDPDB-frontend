@@ -10,20 +10,18 @@ $defaultBorder: 1px solid #eeeeee;
   width: 100vw;
   padding-top: 50px;
   font-family: 'Roboto', sans-serif;
-  color: #222222;
+  color: $defaultColor;
 
   .main_contents {
-    width: 1440px;
-
     .main_header {
       .header_titles {
         display: flex;
         padding-bottom: 18px;
 
         .header_title {
+          padding-right: 5px;
           font-size: 36px;
           font-weight: 700;
-          padding-right: 5px;
         }
         .header_title_itemCount {
           font-size: 12px;
@@ -36,7 +34,6 @@ $defaultBorder: 1px solid #eeeeee;
         font-size: 14px;
 
         .header_category {
-          cursor: pointer;
           margin-right: 4px;
           cursor: pointer;
         }
@@ -64,8 +61,8 @@ $defaultBorder: 1px solid #eeeeee;
         .filter_status_button {
           margin-left: 5px;
           padding-bottom: 1px;
-          font-weight: 700;
           border-bottom: 2px solid #222222;
+          font-weight: 700;
         }
       }
     }
@@ -84,7 +81,7 @@ $defaultBorder: 1px solid #eeeeee;
           .productList_banner {
             cursor: pointer;
             .productList_image {
-              width: 336px;
+              width: 334px;
             }
             .productList_banner_title {
               margin-top: 12px;
@@ -108,22 +105,22 @@ $defaultBorder: 1px solid #eeeeee;
             cursor: pointer;
 
             .product_sort_select_select_option {
+              margin-left: 18px;
               font-size: 16px;
               font-weight: 700;
-              margin-left: 18px;
             }
 
             .sortMore_button {
-              font-size: 14px;
               margin-right: 10px;
+              font-size: 14px;
               &:hover {
                 color: $pointColor;
               }
             }
 
             .product_sort_select_optionBox {
-              margin-top: 10px;
               position: absolute;
+              margin-top: 10px;
               top: 100%;
               width: 260px;
               background-color: white;

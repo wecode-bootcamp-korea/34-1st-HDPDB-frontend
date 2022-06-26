@@ -4,8 +4,8 @@ $red: #e3352c;
 $defaultBorder: 1px solid #eeeeee;
 
 .productCard {
-  width: 336px;
-  height: 569px;
+  width: 32%;
+  height: 560px;
   background-color: #f0f0f0;
   transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -18,9 +18,73 @@ $defaultBorder: 1px solid #eeeeee;
       justify-content: center;
       width: 30px;
       height: 30px;
+
       background-color: $defaultColor;
       .card_icon {
         width: 20px;
+      }
+    }
+  }
+  .card_contents {
+    width: 100%;
+    padding: 4px 20px 20px 20px;
+
+    .card_productImage {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .card_productTitle {
+      padding-top: 26px;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 26px;
+    }
+    .card_productPrice {
+      display: flex;
+      padding-top: 10px;
+      line-height: 20px;
+      font-size: 18px;
+
+      .card_saleInfo {
+        padding-left: 20px;
+
+        .card_defaultPrice {
+          color: #9f9f9f;
+          text-decoration: line-through;
+        }
+
+        .card_salePercent {
+          padding-left: 4px;
+        }
+      }
+    }
+    .card_reviewGrade {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 12px;
+
+      &:hover {
+        color: $pointColor;
+      }
+      .reviwGrade {
+        margin-left: 4px;
+      }
+    }
+    .freeReturn {
+      margin-top: 10px;
+      font-size: 12px;
+    }
+    .card_saleRateInfo {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 30px;
+      font-size: 12px;
+
+      .productReview_Count.productReview_Count {
+        &:hover {
+          color: $pointColor;
+        }
       }
     }
   }
