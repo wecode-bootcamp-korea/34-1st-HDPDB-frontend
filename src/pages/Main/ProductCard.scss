@@ -18,7 +18,6 @@ $defaultBorder: 1px solid #eeeeee;
       justify-content: center;
       width: 30px;
       height: 30px;
-
       background-color: $defaultColor;
       .card_icon {
         width: 20px;
@@ -35,7 +34,8 @@ $defaultBorder: 1px solid #eeeeee;
     }
 
     .card_productTitle {
-      padding-top: 26px;
+      min-height: 80px;
+      padding-top: 20px;
       font-size: 20px;
       font-weight: 700;
       line-height: 26px;
@@ -50,6 +50,7 @@ $defaultBorder: 1px solid #eeeeee;
         padding-left: 20px;
 
         .card_defaultPrice {
+          padding-right: 4px;
           color: #9f9f9f;
           text-decoration: line-through;
         }
