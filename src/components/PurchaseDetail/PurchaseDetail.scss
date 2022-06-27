@@ -1,0 +1,45 @@
+.purchase_wrap {
+  display: flex;
+  margin: 0 82px;
+
+  .purchase_main {
+    margin-top: 58px;
+    padding: 56px 60px 0 0;
+
+    .purchase_logo {
+      display: flex;
+      flex-direction: column;
+
+      img {
+        width: 133px;
+        height: 33px;
+      }
+
+      span {
+        margin: 25px 0;
+      }
+    }
+
+    .purchase_pay {
+      border: 1px solid black;
+      width: 527px;
+      height: 76px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      button {
+        width: 155px;
+        height: 42px;
+        margin-left: 10px;
+        border-radius: 5px;
+        border: none;
+      }
+    }
+  }
+
+  .purchase_sidebar {
+    width: 40%;
+  }
+}
