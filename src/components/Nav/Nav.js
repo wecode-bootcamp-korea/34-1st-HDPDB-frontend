@@ -51,7 +51,7 @@ const Nav = () => {
             <img src="/images/icon/icons8-search-24.png" alt="search" />
           </li>
           <li className="header_alert">
-            <div className="header_alert_alert dotAlert" />
+            <div className="header_alert_alert" />
             <img src="/images/icon/icons8-bell-24.png" alt="알람아이콘" />
           </li>
           <li className="header_cart">
