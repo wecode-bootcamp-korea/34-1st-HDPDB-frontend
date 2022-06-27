@@ -110,7 +110,7 @@ const Login = ({ data, closeModal }) => {
           </div>
         </div>
       </div>
-      <div className="login_overlay" />
+      <div className="overlay" />
     </>
   );
 };
