@@ -142,10 +142,9 @@ $defaultBorder: 1px solid #eeeeee;
           padding: 20px;
           width: 100px;
           top: 100%;
-          right: 50%;
+          left: -130%;
           border: $defaultBorder;
           background-color: white;
-          transform: translaste(50%);
 
           .user_subMenu_line {
             margin-bottom: 16px;
