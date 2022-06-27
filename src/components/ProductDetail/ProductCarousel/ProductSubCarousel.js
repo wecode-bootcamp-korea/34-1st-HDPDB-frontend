@@ -1,8 +1,11 @@
-const ProductSubCarousel = ({ headphoneId, imgPath }) => {
+const ProductSubCarousel = ({ headphoneId, imgPath, subCarousel }) => {
   return (
-    <div className="product_images">
-      <img src={imgPath} alt={headphoneId} />
-    </div>
+    <li
+      className="sub_image_container"
+      style={{ transform: `translateX(${subCarousel}px)` }}
+    >
+      <img src={imgPath} alt={headphoneId} subcarousel={subCarousel} />
+    </li>
   );
 };
 export default ProductSubCarousel;
