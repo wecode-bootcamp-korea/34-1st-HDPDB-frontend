@@ -1,10 +1,50 @@
 .purchase_wrap {
+  width: 100vw;
   display: flex;
   margin: 0 82px;
 
   .purchase_main {
+    width: 50%;
     margin-top: 58px;
     padding: 56px 60px 0 0;
+
+    input {
+      width: 527px;
+      height: 43px;
+      border: 1px solid black;
+      border-radius: 5px;
+      margin-bottom: 13px;
+    }
+
+    .email_input_box {
+      width: 528px;
+      padding: 30px 0;
+      border-top: 1px solid black;
+      margin-top: 37px;
+      display: flex;
+      flex-direction: column;
+
+      .email_checkbox {
+        margin: 15px 0 35px 0;
+
+        .checkbox_input {
+          width: 18px;
+          height: 18px;
+        }
+      }
+
+      .email_input_span {
+        margin-bottom: 25px;
+      }
+    }
+
+    .detail_input {
+      display: flex;
+      flex-direction: column;
+      .detail_span {
+        margin-bottom: 25px;
+      }
+    }
 
     .purchase_logo {
       display: flex;
@@ -41,5 +81,20 @@
 
   .purchase_sidebar {
     width: 40%;
+    // padding-right: px;
+    background-color: #fafafa;
+    border-left: 1px solid #e1e1e1;
+    border-right: 1px solid #e1e1e1;
+
+    .items {
+      width: 343px;
+      height: 180px;
+      display: flex;
+
+      img {
+        width: 64px;
+        height: 64px;
+      }
+    }
   }
 }

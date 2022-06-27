@@ -24,11 +24,17 @@ const PurchaseDetail = () => {
             <button className="google_pay">G pay</button>
           </div>
           <div className="email_input_box">
-            <span>Contact information</span>
+            <span className="email_input_span">Contact information</span>
             <input type="text" placeholder="Email" />
-            <input type="checkbox" /> <span>Email me with news and offers</span>
+            <div className="email_checkbox">
+              <input type="checkbox" className="checkbox_input" />{' '}
+              <span className="checkbox_span">
+                Email me with news and offers
+              </span>
+            </div>
+
             <div className="detail_input">
-              <span>Shipping address</span>
+              <span className="detail_span">Shipping address</span>
               <input type="text" placeholder="South Korea" />
               <input type="text" placeholder="Company (optional)" />
               <div className="name_input_box">
@@ -42,6 +48,15 @@ const PurchaseDetail = () => {
               </div>
               <input type="text" placeholder="O" />
               <input type="text" placeholder="Phone" />
+              <div className="continue_box">
+                <button className="continue_button">
+                  {' '}
+                  Continue to shipping
+                </button>
+              </div>
+              <div className="footer_box">
+                <span>Subscription policy</span>
+              </div>
             </div>
           </div>
         </div>
@@ -59,9 +74,6 @@ const PurchaseDetail = () => {
                   </span>
                 </div>
                 <div className="items_delete_price">
-                  <button type="button" className="items_remove">
-                    Remove
-                  </button>
                   <span className="items_price">{`$ ${
                     el.price * el.quantity
                   }.00`}</span>
