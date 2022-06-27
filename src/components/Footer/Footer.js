@@ -1,8 +1,48 @@
 import React from 'react';
+import FooterBox from './FooterBox';
+import FooterIcon from './FooterIcon';
+import FooterData from './FooterData/footerData';
+import IconData from './FooterData/IconData';
 import './Footer.scss';
 
 const Footer = () => {
-  return <footer></footer>;
+  return (
+    <footer className="footer">
+      <div className="footer_container">
+        <div class="footer_box_logo">
+          <img
+            className="drop_logo"
+            alt="Drop logo"
+            src="../images/logo/dropCI-white.png"
+          />
+        </div>
+        <div className="footer_box">
+          {FooterData.map(value => (
+            <FooterBox
+              key={value.id}
+              aboutTitle={value.aboutTitle}
+              aboutStudio={value.aboutStudio}
+              aboutContact={value.aboutContact}
+              aboutContent={value.aboutContent}
+              aboutDescription={value.aboutDescription}
+            />
+          ))}
+        </div>
+        <div className="footer_sns_logo">
+          <h1 style={{ fontSize: '20px', fontWeight: '700' }}>FOLLOW DROP</h1>
+          <ul style={{ display: 'flex' }}>
+            {IconData.map(value => (
+              <FooterIcon
+                key={value.id}
+                iconName={value.icon_name}
+                iconPath={value.icon_path}
+              />
+            ))}
+          </ul>
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;
