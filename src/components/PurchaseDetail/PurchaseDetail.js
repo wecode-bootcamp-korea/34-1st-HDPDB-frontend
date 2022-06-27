@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faGooglePay,
+  faPaypal,
+  faApplePay,
+} from '@fortawesome/free-brands-svg-icons';
 import './PurchaseDetail.scss';
 
 const PurchaseDetail = () => {
@@ -19,9 +25,16 @@ const PurchaseDetail = () => {
             <span>information - Shopping - Payment</span>
           </div>
           <div className="purchase_pay">
-            <button className="shop_pay"> Shop</button>
-            <button className="pay_pal"> PayPal</button>
-            <button className="google_pay">G pay</button>
+            <button className="shop_pay">
+              <FontAwesomeIcon icon={faApplePay} />
+            </button>
+            <button className="pay_pal">
+              <FontAwesomeIcon icon={faPaypal} />
+              PayPal
+            </button>
+            <button className="google_pay">
+              <FontAwesomeIcon icon={faGooglePay} />
+            </button>
           </div>
           <div className="email_input_box">
             <span className="email_input_span">Contact information</span>
@@ -64,6 +77,9 @@ const PurchaseDetail = () => {
           {detailCart.map(el => {
             return (
               <div className="items" key={el.id}>
+                <div className="items_quantity_box">
+                  <span className="items_quantity">{el.quantity}</span>
+                </div>
                 <img src={el.img} alt="item" className="items_img" />
                 <div className="items_description">
                   <span className="items_name">{el.products}</span>
@@ -81,6 +97,32 @@ const PurchaseDetail = () => {
               </div>
             );
           })}
+          <div className="sidebar_subtotal">
+            <div className="subtotal_title_box">
+              <span>Subtotal</span>
+              <span>Shipping</span>
+            </div>
+            <div className="subtotal_detail_box">
+              <span>
+                $
+                {detailCart.reduce((a, b) => {
+                  return a + b.price * b.quantity;
+                }, 0)}
+                {`.00`}
+              </span>
+              <span>Calculated at next step</span>
+            </div>
+          </div>
+          <div className="total_price_box">
+            <span className="total_title">Total</span>
+            <span className="total_price">
+              USD ${' '}
+              {detailCart.reduce((a, b) => {
+                return a + b.price * b.quantity;
+              }, 0)}
+              {`.00`}
+            </span>{' '}
+          </div>
         </div>
       </div>
     </div>
