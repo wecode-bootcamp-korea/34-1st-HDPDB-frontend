@@ -1,8 +1,7 @@
-import React from 'react';
-import { useState } from 'react';
-import './Main.scss';
+import React, { useState } from 'react';
 import Filter from './Filter';
 import ProductList from './ProductList';
+import './Main.scss';
 
 const Main = () => {
   const [selectBoxStatus, setSelectBoxStatus] = useState(false);
@@ -37,15 +36,17 @@ const Main = () => {
           <Filter />
           <div className="productList">
             <div className="productList_banners">
-              {BANNER.map(el => {
+              {BANNER.map(advertiseProduct => {
                 return (
-                  <div className="productList_banner" key={el.id}>
+                  <div className="productList_banner" key={advertiseProduct.id}>
                     <img
                       className="productList_image"
-                      src={el.imgURL}
-                      alt={el.alt}
+                      src={advertiseProduct.imgURL}
+                      alt={advertiseProduct.alt}
                     />
-                    <h3 className="productList_banner_title">{el.title}</h3>
+                    <h3 className="productList_banner_title">
+                      {advertiseProduct.title}
+                    </h3>
                   </div>
                 );
               })}
@@ -66,8 +67,11 @@ const Main = () => {
                 ) : (
                   <span className="sortMore_button">▼</span>
                 )}
-
-                {!!selectBoxStatus && (
+                {/* !! === 명시적으로 boolean type으로 바꿔줄 때 
+e.g) undefined, NaN, null, "" ,0 
+!붙여주면 
+*/}
+                {selectBoxStatus && (
                   <div className="product_sort_select_optionBox">
                     {PRODUCTSORTLIST.map(el => {
                       return (

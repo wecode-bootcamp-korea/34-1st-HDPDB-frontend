@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Router from './Router';
+import '../src/styles/variables.scss';
 import '../src/styles/reset.scss';
 import '../src/styles/common.scss';
 
