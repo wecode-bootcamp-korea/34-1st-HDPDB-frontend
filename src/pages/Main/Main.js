@@ -67,13 +67,10 @@ const Main = () => {
                 ) : (
                   <span className="sortMore_button">▼</span>
                 )}
-                {/* !! === 명시적으로 boolean type으로 바꿔줄 때 
-e.g) undefined, NaN, null, "" ,0 
-!붙여주면 
-*/}
+                {/* !! === undefined, null, NaN ,"",0같은 data type을 명시적으로 boolean type으로 바꿔줄 때 */}
                 {selectBoxStatus && (
                   <div className="product_sort_select_optionBox">
-                    {PRODUCTSORTLIST.map(el => {
+                    {PRODUCT_SORT_LIST.map(el => {
                       return (
                         <p
                           className="product_sort_select_option"
@@ -119,7 +116,7 @@ const BANNER = [
   },
 ];
 
-const PRODUCTSORTLIST = [
+const PRODUCT_SORT_LIST = [
   { id: 1, selectText: 'RECOMMENDED' },
   { id: 2, selectText: 'ENDING BY' },
   { id: 3, selectText: 'NEWEST' },
