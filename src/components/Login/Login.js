@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { api } from '../../config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { useState } from 'react';
 import './Login.scss';
 
 const Login = ({ data, closeModal }) => {
@@ -11,6 +12,8 @@ const Login = ({ data, closeModal }) => {
     password: '',
   });
   const [idCheck, setIdCheck] = useState('');
+
+  const navigate = useNavigate();
 
   const saveLoginInfo = e => {
     const { name, value } = e.target;
@@ -34,15 +37,29 @@ const Login = ({ data, closeModal }) => {
 
   const loginFunction = () => {
     //로그인 성공시 메인페이지로 연결시킬예정.
-    fetch(`http://10.58.4.235:8000/users/${url}`, {
+    fetch(api[url], {
       method: 'POST',
       body: JSON.stringify({
         email: loginInfo.email,
         password: loginInfo.password,
       }),
     })
-      .then(res => res.json())
-      .then(data => localStorage.setItem('access_token', data.access_token));
+      .then(res => {
+        if (res.status === 200) {
+          return res.json();
+        }
+        throw new Error('통신 실패');
+      })
+      .then(data => {
+        if (data.message === 'SUCCESS') {
+          localStorage.setItem('access_token', data.access_token);
+        } else if (data.message === 'INVALID_EMAIL') {
+          alert('이메일이나, 비밀번호를 다시 입력 해 주세요');
+        } else if (data.message === 'INVALID_PASSWORD') {
+          alert('이메일이나, 비밀번호를 다시 입력 해 주세요');
+        }
+      })
+      .catch(err => console.log(err));
   };
 
   return (
