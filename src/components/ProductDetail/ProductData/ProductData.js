@@ -1,4 +1,4 @@
-const PRODUCT_DATA = [
+const HEAD_SET_DATA = [
   {
     id: 1,
     headphone_id: '1',
@@ -85,4 +85,4 @@ const PRODUCT_DATA = [
   },
 ];
 
-export default PRODUCT_DATA;
+export default HEAD_SET_DATA;
