@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { api } from '../../config';
 import './Login.scss';
 
-const Login = ({ data, closeModal }) => {
+const Login = ({ data, closeModal, dataConvert }) => {
   const { title, subtitle, facebook, google, btn, text, footer, url } = data;
   const [loginInfo, setLoginInfo] = useState({
     email: '',
@@ -126,7 +126,9 @@ const Login = ({ data, closeModal }) => {
           </div>
           <div className="login_footer">
             <span className="login_footer_span">{text}</span>
-            <span className="login_footer_link">{footer}</span>
+            <span className="login_footer_link" onClick={dataConvert}>
+              {footer}
+            </span>
           </div>
         </div>
       </div>
