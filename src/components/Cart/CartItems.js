@@ -19,14 +19,22 @@ export const CartItems = ({
                 {`${el.color} / ${el.option}`}
               </span>
               <div className="quantity_box">
-                <button className="minus_btn" onClick={quantityDecrease}>
+                <button
+                  type="button"
+                  className="minus_btn"
+                  onClick={e => quantityDecrease(el.id)}
+                >
                   -
                 </button>{' '}
                 {el.quantity}
-                <button className="plus_btn" onClick={quantityIncrease}>
+                <button
+                  type="button"
+                  className="plus_btn"
+                  onClick={e => quantityIncrease(el.id)}
+                >
                   +
                 </button>
-                {cartList.quantity === 0 && handleRemove(el.id)}
+                {el.quantity === 0 && handleRemove(el.id)}
               </div>
             </div>
             <div className="items_delete_price">

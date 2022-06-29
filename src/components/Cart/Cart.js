@@ -17,11 +17,24 @@ const Cart = ({ closeCart }) => {
     setCartList(newList);
   };
 
-  const quantityIncrease = () => {
-    cartList.quantity += 1;
+  const quantityIncrease = id => {
+    setCartList(el => {
+      const result = el.map(listItem => {
+        if (listItem.id === id) listItem.quantity += 1;
+        return listItem;
+      });
+      return result;
+    });
   };
-  const quantityDecrease = () => {
-    cartList.quantity -= 1;
+  const quantityDecrease = id => {
+    setCartList(el => {
+      const result = el.map(listItem => {
+        if (listItem.id === id) listItem.quantity -= 1;
+        if (listItem.quantity === 0) handleRemove(listItem.id);
+        return listItem;
+      });
+      return result;
+    });
   };
 
   return (
@@ -37,13 +50,16 @@ const Cart = ({ closeCart }) => {
               X
             </button>
           </div>
-          <CartLink />
-          <CartItems
-            cartList={cartList}
-            handleRemove={handleRemove}
-            quantityIncrease={quantityIncrease}
-            quantityDecrease={quantityDecrease}
-          />
+          {cartList.length === 0 ? (
+            <CartLink />
+          ) : (
+            <CartItems
+              cartList={cartList}
+              handleRemove={handleRemove}
+              quantityIncrease={quantityIncrease}
+              quantityDecrease={quantityDecrease}
+            />
+          )}
         </div>
         <div className="cart_footer">
           <div className="total_price_box">
