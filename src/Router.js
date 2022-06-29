@@ -9,6 +9,7 @@ import Cart from './components/Cart/Cart';
 const Router = () => {
   return (
     <BrowserRouter>
+      <Nav />
       <Cart />
       <Routes>
         <Route path="/main" element={<Main />} />
