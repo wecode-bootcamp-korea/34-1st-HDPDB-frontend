@@ -4,6 +4,7 @@
   display: flex;
   justify-content: flex-end;
 }
+
 .overlay {
   width: 100vw;
   height: 100vh;
@@ -82,6 +83,9 @@
         border: 1px outset black;
         margin-top: 15px;
         width: 66px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
         button {
           border: none;
           background-color: white;

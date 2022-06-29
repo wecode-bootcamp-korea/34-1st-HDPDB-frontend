@@ -17,6 +17,13 @@ const Cart = ({ closeCart }) => {
     setCartList(newList);
   };
 
+  const quantityIncrease = () => {
+    cartList.quantity += 1;
+  };
+  const quantityDecrease = () => {
+    cartList.quantity -= 1;
+  };
+
   return (
     <div className="main">
       <div className="overlay" />
@@ -31,7 +38,12 @@ const Cart = ({ closeCart }) => {
             </button>
           </div>
           <CartLink />
-          <CartItems cartList={cartList} handleRemove={handleRemove} />
+          <CartItems
+            cartList={cartList}
+            handleRemove={handleRemove}
+            quantityIncrease={quantityIncrease}
+            quantityDecrease={quantityDecrease}
+          />
         </div>
         <div className="cart_footer">
           <div className="total_price_box">

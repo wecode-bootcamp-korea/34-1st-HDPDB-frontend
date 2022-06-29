@@ -1,7 +1,12 @@
 import React from 'react';
 import './Cart.scss';
 
-export const CartItems = ({ cartList, handleRemove }) => {
+export const CartItems = ({
+  cartList,
+  handleRemove,
+  quantityIncrease,
+  quantityDecrease,
+}) => {
   return (
     <>
       {cartList.map(el => {
@@ -14,8 +19,14 @@ export const CartItems = ({ cartList, handleRemove }) => {
                 {`${el.color} / ${el.option}`}
               </span>
               <div className="quantity_box">
-                <button className="minus_btn">-</button> {el.quantity}
-                <button className="plus_btn">+</button>
+                <button className="minus_btn" onClick={quantityDecrease}>
+                  -
+                </button>{' '}
+                {el.quantity}
+                <button className="plus_btn" onClick={quantityIncrease}>
+                  +
+                </button>
+                {cartList.quantity === 0 && handleRemove(el.id)}
               </div>
             </div>
             <div className="items_delete_price">
