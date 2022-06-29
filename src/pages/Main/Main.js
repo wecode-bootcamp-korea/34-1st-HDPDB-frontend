@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Filter from './Filter';
 import ProductList from './ProductList';
 import './Main.scss';
@@ -8,6 +9,9 @@ const Main = () => {
   const [selectBoxStatus, setSelectBoxStatus] = useState(false);
   const [selectSortOption, setSelectSortOPtion] = useState('RECOMMENDED');
   const [productList, setProductList] = useState([]);
+
+  const [priceCheckList, setPriceCheckList] = useState([]);
+  const [stockCheckList, setStockCheckList] = useState([]);
 
   useEffect(() => {
     fetch('data/productList.json')
@@ -20,7 +24,11 @@ const Main = () => {
   const showSelectBox = () => {
     setSelectBoxStatus(!selectBoxStatus);
   };
+  const navigate = useNavigate();
 
+  const goToProductDetail = id => {
+    navigate(`/purchase/${id}`);
+  };
   return (
     <div className="main">
       <div className="main_contents">
@@ -98,7 +106,10 @@ const Main = () => {
                 )}
               </div>
             </div>
-            <ProductList productList={productList} />
+            <ProductList
+              productList={productList}
+              goToProductDetail={goToProductDetail}
+            />
           </div>
         </div>
       </div>

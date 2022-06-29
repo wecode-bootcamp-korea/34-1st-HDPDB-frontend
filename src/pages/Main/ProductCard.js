@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import './ProductCard.scss';
 const ProductCard = ({
   id,
@@ -10,13 +9,14 @@ const ProductCard = ({
   salePrice,
   defaultPrice,
   saleRate,
+  goToProductDetail,
 }) => {
-  const navigate = useNavigate();
-  const goToProductDetail = () => {
-    // navigate(`/purchase${procuctId}`);
-  };
   return (
-    <div className="product_card" onClick={goToProductDetail}>
+    <div
+      className="product_card"
+      onClick={() => goToProductDetail(id)}
+      key={id}
+    >
       <div className="card_header">
         <div className="card_icon_box">
           <img

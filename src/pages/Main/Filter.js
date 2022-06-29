@@ -2,8 +2,6 @@ import React from 'react';
 import { useState } from 'react';
 import './Filter.scss';
 const Filter = () => {
-  const [priceCheckList, setPriceCheckList] = useState([]);
-  const [stockCheckList, setStockCheckList] = useState([]);
   return (
     <aside className="filter">
       <div className="category_section featured">
