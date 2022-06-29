@@ -1,12 +1,22 @@
 import React from 'react';
-import { useState } from 'react';
-import './Main.scss';
+import { useState, useEffect } from 'react';
 import Filter from './Filter';
 import ProductList from './ProductList';
+import './Main.scss';
 
 const Main = () => {
   const [selectBoxStatus, setSelectBoxStatus] = useState(false);
   const [selectSortOption, setSelectSortOPtion] = useState('RECOMMENDED');
+  const [productList, setProductList] = useState([]);
+
+  useEffect(() => {
+    fetch('data/productList.json')
+      .then(productList => productList.json())
+      .then(productList => {
+        setProductList(productList);
+      });
+  }, []);
+
   const showSelectBox = () => {
     setSelectBoxStatus(!selectBoxStatus);
   };
@@ -37,15 +47,17 @@ const Main = () => {
           <Filter />
           <div className="productList">
             <div className="productList_banners">
-              {BANNER.map(el => {
+              {BANNER.map(ad_banner => {
                 return (
-                  <div className="productList_banner" key={el.id}>
+                  <div className="productList_banner" key={ad_banner.id}>
                     <img
                       className="productList_image"
-                      src={el.imgURL}
-                      alt={el.alt}
+                      src={ad_banner.imgURL}
+                      alt={ad_banner.alt}
                     />
-                    <h3 className="productList_banner_title">{el.title}</h3>
+                    <h3 className="productList_banner_title">
+                      {ad_banner.title}
+                    </h3>
                   </div>
                 );
               })}
@@ -55,7 +67,7 @@ const Main = () => {
                 className="product_sort_select"
                 onClick={showSelectBox}
                 style={{
-                  border: selectBoxStatus ? '1px solid #222' : '',
+                  border: selectBoxStatus && '1px solid #222',
                 }}
               >
                 <p className="product_sort_select_select_option">
@@ -67,18 +79,18 @@ const Main = () => {
                   <span className="sortMore_button">▼</span>
                 )}
 
-                {!!selectBoxStatus && (
+                {selectBoxStatus && (
                   <div className="product_sort_select_optionBox">
-                    {PRODUCTSORTLIST.map(el => {
+                    {PRODUCTSORTLIST.map(product_sort_option => {
                       return (
                         <p
                           className="product_sort_select_option"
-                          key={el.id}
+                          key={product_sort_option.id}
                           onClick={() => {
-                            setSelectSortOPtion(el.selectText);
+                            setSelectSortOPtion(product_sort_option.selectText);
                           }}
                         >
-                          {el.selectText}
+                          {product_sort_option.selectText}
                         </p>
                       );
                     })}
@@ -86,7 +98,7 @@ const Main = () => {
                 )}
               </div>
             </div>
-            <ProductList />
+            <ProductList productList={productList} />
           </div>
         </div>
       </div>
@@ -99,27 +111,27 @@ const BANNER = [
     id: 1,
     title: 'Mechanical Keyboards',
     alt: 'banner keyboard image',
-    imgURL: '/images/pageBanner/10215_Keyboards_Yellow.webp',
+    imgURL: '/images/pageBanner/keyboard.png',
   },
   {
     id: 2,
-    title: 'Mechanical Keyboards',
+    title: 'Audiophile',
     alt: 'banner keyboard image',
-    imgURL: '/images/pageBanner/10008_Audiophile_Yellow.webp',
+    imgURL: '/images/pageBanner/headset.png',
   },
   {
     id: 3,
-    title: 'Mechanical Keyboards',
+    title: 'Keycaps',
     alt: 'banner keyboard image',
-    imgURL: '/images/pageBanner/16870_Mech-Keys-Builder_Yellow.webp',
+    imgURL: '/images/pageBanner/keycap.png',
   },
 ];
 
 const PRODUCTSORTLIST = [
   { id: 1, selectText: 'RECOMMENDED' },
-  { id: 2, selectText: 'ENDING BY' },
-  { id: 3, selectText: 'NEWEST' },
-  { id: 4, selectText: 'BEST REVIEWED' },
+  { id: 2, selectText: 'ORDER OF SALE' },
+  { id: 3, selectText: 'DECENDING ORDER PRICE' },
+  { id: 4, selectText: 'ASCENDING ORDER PRICE' },
 ];
 
 export default Main;

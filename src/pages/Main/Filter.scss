@@ -6,24 +6,24 @@ $defaultBorder: 1px solid #eeeeee;
 .filter {
   min-width: 320px;
 
-  .category-section {
+  .category_section {
     position: relative;
     padding-bottom: 43px;
 
-    .category-title {
+    .category_title {
       width: 100%;
       padding-bottom: 5px;
       font-weight: 700;
       border-bottom: 1px solid #9f9ea6;
     }
 
-    .category-nav {
+    .category_nav {
       padding-top: 10px;
 
-      .underLine {
+      .under_line {
         position: relative;
 
-        .category-nav-list {
+        .category_nav_list {
           position: relative;
           display: inline-block;
           margin: 15px 0;
@@ -45,7 +45,7 @@ $defaultBorder: 1px solid #eeeeee;
             width: 100%;
           }
 
-          .itemCount {
+          .item_count {
             margin-left: 5px;
             font-size: 12px;
           }

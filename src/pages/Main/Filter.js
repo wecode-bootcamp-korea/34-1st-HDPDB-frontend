@@ -1,66 +1,79 @@
 import React from 'react';
+import { useState } from 'react';
 import './Filter.scss';
 const Filter = () => {
+  const [priceCheckList, setPriceCheckList] = useState([]);
+  const [stockCheckList, setStockCheckList] = useState([]);
   return (
     <aside className="filter">
-      <div className="category-section featured">
-        <h3 className="category-title ">FEATURED</h3>
-        <ul className="category-nav">
-          {FEATURED_LIST.map(el => {
+      <div className="category_section featured">
+        <h3 className="category_title ">FEATURED</h3>
+        <ul className="category_nav">
+          {FEATURED_LIST.map(featured_nav_list => {
             return (
-              <li className="underLine" key={el.id}>
-                <div className="category-nav-list">
-                  {el.listName}
-                  <span className="itemCount">({el.count})</span>
+              <li className="under_line" key={featured_nav_list.id}>
+                <div className="category_nav_list">
+                  {featured_nav_list.listName}
+                  <span className="item_count">
+                    ({featured_nav_list.count})
+                  </span>
                 </div>
               </li>
             );
           })}
         </ul>
       </div>
-      <div className="category-section categories">
-        <h3 className="category-title ">CATEGORIES</h3>
-        <ul className="category-nav">
-          {CATEGORIES.map(el => {
+      <div className="category_section categories">
+        <h3 className="category_title ">CATEGORIES</h3>
+        <ul className="category_nav">
+          {CATEGORIES.map(category_nav_list => {
             return (
-              <li className="underLine" key={el.id}>
-                <div className="category-nav-list">
-                  {el.listName}
-                  <span className="itemCount">({el.count})</span>
+              <li className="under_line" key={category_nav_list.id}>
+                <div className="category_nav_list">
+                  {category_nav_list.listName}
+                  <span className="item_count">
+                    ({category_nav_list.count})
+                  </span>
                 </div>
               </li>
             );
           })}
         </ul>
       </div>
-      <div className="category-section shop_by_product_stage">
-        <h3 className="category-title ">SHOP BY PRICE</h3>
-        <ul className="category-nav">
-          {SHOP_BY_PRICE.map(el => {
+      <div className="category_section shop_by_product_stage">
+        <h3 className="category_title ">SHOP BY PRICE</h3>
+        <ul className="category_nav">
+          {SHOP_BY_PRICE.map(price_nav_list => {
             return (
-              <li className="underLine" key={el.id}>
-                <div className="category-nav-list " key={el.id}>
-                  <input type="checkBox" class="filter_checkBox" />
-
-                  {el.listName}
-                  <span className="itemCount">({el.count})</span>
+              <li className="under_line" key={price_nav_list.id}>
+                <div className="category_nav_list " key={price_nav_list.id}>
+                  <input
+                    type="checkBox"
+                    class="filter_checkBox"
+                    name="stock_filter"
+                  />
+                  {price_nav_list.listName}
+                  <span className="item_count">({price_nav_list.count})</span>
                 </div>
               </li>
             );
           })}
         </ul>
       </div>
-      <div className="category-section shop_by_product_stage">
-        <h3 className="category-title ">SHOP BY PRODUCT STAGE</h3>
-        <ul className="category-nav">
-          {SHOP_BY_PRODUCT_STAGE.map(el => {
+      <div className="category_section shop_by_product_stage">
+        <h3 className="category_title ">Available stock</h3>
+        <ul className="category_nav">
+          {SHOP_BY_PRODUCT_STAGE.map(stock_nav_list => {
             return (
-              <li className="underLine" key={el.id}>
-                <div className="category-nav-list">
-                  <input type="checkBox" className="filter_checkBox" />
-
-                  {el.listName}
-                  <span className="itemCount">({el.count})</span>
+              <li className="under_line" key={stock_nav_list.id}>
+                <div className="category_nav_list">
+                  <input
+                    type="checkBox"
+                    className="filter_checkBox"
+                    name="stock_filter"
+                  />
+                  {stock_nav_list.listName}
+                  <span className="item_count">({stock_nav_list.count})</span>
                 </div>
               </li>
             );
@@ -89,16 +102,15 @@ const CATEGORIES = [
 ];
 
 const SHOP_BY_PRICE = [
-  { id: 1, listName: 'Under $50', count: 237 },
-  { id: 2, listName: '$50-$100', count: 99 },
-  { id: 3, listName: '$100-$250', count: 109 },
-  { id: 4, listName: 'Above $250', count: 33 },
+  { id: 1, listName: 'Under $100', count: 237 },
+  { id: 2, listName: '$100-$150', count: 99 },
+  { id: 3, listName: 'Above $150', count: 33 },
 ];
 
 const SHOP_BY_PRODUCT_STAGE = [
-  { id: 1, listName: 'In-Stocks', count: 79 },
-  { id: 2, listName: 'Ships Soon', count: 16 },
-  { id: 3, listName: 'Pre-Order', count: 14 },
+  { id: 1, listName: 'Stock', count: 79 },
+  { id: 2, listName: 'Low Stock', count: 16 },
+  { id: 3, listName: 'Out of Stock', count: 14 },
 ];
 
 export default Filter;
