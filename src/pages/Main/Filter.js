@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import './Filter.scss';
 
-const Filter = () => {
+const Filter = ({ categoryList }) => {
   const [categoryName, setCategoryName] = useState([]);
 
   useEffect(() => {
@@ -59,7 +59,7 @@ const Filter = () => {
                     <div className="category_nav_list " key={price_nav_list.id}>
                       <input
                         type="checkBox"
-                        class="filter_checkBox"
+                        className="filter_checkBox"
                         name="stock_filter"
                       />
                       {price_nav_list.listName}

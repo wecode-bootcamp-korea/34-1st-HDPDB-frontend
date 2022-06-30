@@ -15,14 +15,10 @@ const Main = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`10.58.3.149:8000/api/product_groups?`, {
-      headers: {
-        Accept: 'application / json',
-      },
-    })
-      .then(productList => productList.json())
+    // TODO: 나중에 실제 데이터 연결시 사용 예정  fetch(`http://10.58.3.149:8000/api/product_groups?`)
+    fetch('/data/productList.json')
+      .then(res => res.json())
       .then(productList => {
-        console.log(productList);
         setProductList(productList);
       });
   }, [params.listName]);
