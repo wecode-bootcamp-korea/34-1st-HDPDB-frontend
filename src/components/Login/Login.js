@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { useNavigate } from 'react-router-dom';
 import { api } from '../../config';
 import './Login.scss';
 
@@ -12,7 +11,6 @@ const Login = ({ data, closeModal, dataConvert, setCurrentModal }) => {
     password: '',
   });
   const [idCheck, setIdCheck] = useState('');
-  const navigate = useNavigate();
 
   const saveLoginInfo = e => {
     const { name, value } = e.target;
