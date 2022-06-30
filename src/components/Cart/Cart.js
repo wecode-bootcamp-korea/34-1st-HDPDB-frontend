@@ -6,22 +6,6 @@ import './Cart.scss';
 const Cart = ({ closeCart }) => {
   const [cartList, setCartList] = useState([]);
 
-  // useEffect(() => {
-  //   fetch('http://10.58.3.149:8000/api/cart', {
-  //     method: 'GET',
-  //     headers: {
-  //       Authorization:
-  //         'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.WlsHgZgdtHbtQBZNoEnGj-c2b8nR57jUb_AbvRSDblo',
-  //     },
-  //     body: JSON.stringify({
-  //       product_id: '4',
-  //       quantity: '1',
-  //     }),
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => setCartList(data));
-  // }, []);
-
   useEffect(() => {
     fetch('/data/itemsData.json')
       .then(res => res.json())

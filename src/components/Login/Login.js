@@ -12,25 +12,6 @@ const Login = ({ data, closeModal }) => {
   });
   const [idCheck, setIdCheck] = useState('');
   const [pwCheck, setPwCheck] = useState('');
-  // useEffect(() => {
-  //   const SighUpTitle = {
-  //     title: 'GET $10 OFF',
-  //     facebook: 'LOG IN WITH FACEBOOK',
-  //     google: 'Continue with Google',
-  //     btn: 'Continue',
-  //     text: 'We will never spam you or sell your email to third parties.',
-  //     footer: 'Already a member? Log In',
-  //   };
-  //   const loginTitle = {
-  //     title: 'Log In To Drop',
-  //     facebook: 'LOG IN WITH FACEBOOK',
-  //     google: 'LOG IN WITH GOOGLE',
-  //     btn: 'LOG IN',
-  //     text: 'I FORGOT MY PASSWORD',
-  //     footer: 'Not a member yet? Sign up',
-  //   };
-  //   setTitleConvert(loginTitle);
-  // }, []);
 
   const saveLoginInfo = e => {
     const { name, value } = e.target;

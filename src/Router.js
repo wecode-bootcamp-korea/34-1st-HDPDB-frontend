@@ -4,7 +4,6 @@ import Main from '../src/pages/Main/Main';
 import ProductDetail from './components/ProductDetail/ProductDetail';
 import Footer from '../src/components/Footer/Footer';
 import Login from '../src/components/Login/Login';
-import Cart from './components/Cart/Cart';
 import Nav from './components/Nav/Nav';
 
 const Router = () => {
