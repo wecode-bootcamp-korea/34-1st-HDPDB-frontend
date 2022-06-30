@@ -11,7 +11,6 @@ const ProductCard = ({ productList, goToProductDetail }) => {
     discount_price,
     price,
   } = productList;
-  console.log(productList);
   return (
     <div
       className="product_card"
