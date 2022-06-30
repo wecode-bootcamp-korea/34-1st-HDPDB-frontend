@@ -1,0 +1,56 @@
+$defaultColor: #222222;
+$pointColor: #fdcf41;
+$red: #e3352c;
+$defaultBorder: 1px solid #eeeeee;
+
+.filter {
+  min-width: 320px;
+
+  .category_section {
+    position: relative;
+    padding-bottom: 43px;
+
+    .category_title {
+      width: 100%;
+      padding-bottom: 5px;
+      font-weight: 700;
+      border-bottom: 1px solid #9f9ea6;
+    }
+
+    .category_nav {
+      padding-top: 10px;
+
+      .under_line {
+        position: relative;
+
+        .category_nav_list {
+          position: relative;
+          display: inline-block;
+          margin: 15px 0;
+          padding-bottom: 3px 0;
+          font-size: 14px;
+          cursor: pointer;
+
+          &:before {
+            content: '';
+            position: absolute;
+            margin-bottom: -5px;
+            bottom: 0;
+            height: 4px;
+            width: 0;
+            background-color: $pointColor;
+            transition: 0.7s;
+          }
+          &:hover:before {
+            width: 100%;
+          }
+
+          .item_count {
+            margin-left: 5px;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}
