@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { api } from '../../config';
 import './Login.scss';
 
-const Login = ({ data, closeModal, dataConvert }) => {
+const Login = ({ data, closeModal, dataConvert, setCurrentModal }) => {
   const { title, subtitle, facebook, google, btn, text, footer, url } = data;
   const [loginInfo, setLoginInfo] = useState({
     email: '',
@@ -34,9 +34,8 @@ const Login = ({ data, closeModal, dataConvert }) => {
     }
   };
 
-  const loginFunction = () => {
-    //로그인 성공시 메인페이지로 연결시킬예정. catch?
-    navigate('/main');
+  const loginFunction = e => {
+    e.preventDefault();
     fetch(api[url], {
       method: 'POST',
       body: JSON.stringify({
@@ -45,25 +44,20 @@ const Login = ({ data, closeModal, dataConvert }) => {
       }),
     })
       .then(res => {
-        if (res.status === 200) {
+        if (res.status >= 200 && res.status < 300) {
           return res.json();
         }
         throw new Error('통신 실패');
       })
       .then(data => {
-        if (data.message === 'SUCCESS') {
+        if (data.access_token) {
           localStorage.setItem('access_token', data.access_token);
-        } else if (data.message === 'ERROR_EMAIL_VALIDATION') {
-          alert('이메일을 다시 입력 해주세요.');
-        } else if (data.message === 'ERROR_PASSWORD_REQUIRE_8_LETTER') {
-          alert('패스워드를 8자리 이상 입력해주세요.');
-        } else if (data.message === 'ERROR_EMAIL_ALREADY_EXIST') {
-          alert('이미 가입되어 있는 이메일 입니다.');
-        } else if (data.message === 'INVALID_USER') {
-          alert('유효하지 않은 정보입니다.');
+          closeModal();
+        } else {
+          setCurrentModal('login');
+          alert('로그인을 해주세요.');
         }
-      })
-      .catch(err => console.log(err));
+      });
   };
 
   return (
@@ -119,11 +113,11 @@ const Login = ({ data, closeModal, dataConvert }) => {
               </span>
             </div>
           </form>
-          <div className="login_continue_box">
+          <form className="login_continue_box">
             <button className="login_continue_btn" onClick={loginFunction}>
               {btn}
             </button>
-          </div>
+          </form>
           <div className="login_footer">
             <span className="login_footer_span">{text}</span>
             <span className="login_footer_link" onClick={dataConvert}>
