@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import ProductMainCarousel from './ProductCarousel/ProductMainCarousel';
 import ProductSubCarousel from './ProductCarousel/ProductSubCarousel';
 import PurchaseButton from './PurchaseButton';
@@ -22,8 +22,6 @@ const ProductDetail = () => {
       .then(response => response.json())
       .then(products => setProductInfo(products));
   }, [params.productId]);
-
-  const navigation = useNavigate();
 
   const addToCart = () => {
     setModal('cart');
@@ -81,7 +79,7 @@ const ProductDetail = () => {
       switchTypeArr.push(product_option[1].type);
     }
   }
-  console.log(color, caseType);
+
   return (
     <div className="product-detail">
       <div className="product_container">
@@ -168,7 +166,6 @@ const ProductDetail = () => {
         </div>
       </div>
 
-      <div className="icon_container"></div>
       <div className="overview_container">
         <div className="overview_title">
           <span>
