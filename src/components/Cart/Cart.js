@@ -22,7 +22,7 @@ const Cart = ({ closeCart }) => {
     const newList = cartList.filter(el => el.id !== id);
     setCartList(newList);
   };
-
+  console.log(cartList);
   const quantityIncrease = id => {
     setCartList(el => {
       const result = el.map(listItem => {
