@@ -1,19 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import ProductMainCarousel from './ProductCarousel/ProductMainCarousel';
 import ProductSubCarousel from './ProductCarousel/ProductSubCarousel';
 import PurchaseButton from './PurchaseButton';
 import ProductPrice from './ProductPrice';
 import PRODUCT_DATA from './ProductData/ProductData';
+import OptionButton from './OptionButton';
+import Cart from '../Cart/Cart';
 import './ProductDetail.scss';
 
 const ProductDetail = () => {
+  const [productInfo, setProductInfo] = useState([]);
+  const params = useParams();
+  const [modal, setModal] = useState('');
+
+  useEffect(() => {
+    fetch(`data/headsetData.json`)
+      // http://172.20.10.2:8000/products/detail/${params.productId}
+      .then(response => response.json())
+      .then(products => setProductInfo(products));
+  }, [params.productId]);
+
+  const navigation = useNavigate();
+  const changeOption = () => {
+    navigation(`purchase/${Number(params.productId)}`);
+  };
+  const addToCart = () => {
+    setModal('cart');
+  };
   const [mainCarousel, setMainCarousel] = useState(0);
   const [subCarousel, setSubCarousel] = useState(0);
   const leftCarouselButton = () => {
     if (mainCarousel === 0 && subCarousel === 0) {
       setMainCarousel(0);
       setSubCarousel(0);
-      console.log(PRODUCT_DATA);
     } else {
       setMainCarousel(mainCarousel + 1050);
       setSubCarousel(subCarousel + 160);
@@ -21,11 +41,9 @@ const ProductDetail = () => {
   };
 
   const rightCarouselButton = () => {
-    //10000은 img width * img 갯수로 정해질 예정임.
-    //if(carousel값이 img width * img 갯수보다 클 때 안움직이게 할 예정.)
-    if (mainCarousel > 10000 && subCarousel > 10000) {
-      setMainCarousel(mainCarousel => mainCarousel + 0);
-      setSubCarousel(subCarousel => subCarousel + 0);
+    if (mainCarousel === 13650 && subCarousel === 1920) {
+      setMainCarousel(13650);
+      setSubCarousel(1920);
     } else {
       setMainCarousel(mainCarousel - 1050);
       setSubCarousel(subCarousel - 160);
@@ -36,25 +54,28 @@ const ProductDetail = () => {
     event.preventDefault();
   };
 
-  //state 값을 어떻게 전달할지 생각해볼 것.
+  if (productInfo.length === 0) return <>Loadding</>;
+  const arr = [];
+  const {
+    message: { product_info },
+  } = productInfo;
 
+  console.log(arr);
   return (
     <div className="product-detail">
       <div className="product_container">
         <div className="product_thumbnail">
           <div className="product_image_main">
             <ul className="main_carousel_box">
-              {PRODUCT_DATA.map(value => (
+              {PRODUCT_DATA.map(products => (
                 <ProductMainCarousel
                   mainCarousel={mainCarousel}
-                  key={value.id}
-                  headphoneId={value.headphone_id}
-                  imgPath={value.imgPath}
+                  key={products.id}
+                  headphoneId={products.headphone_id}
+                  imgPath={products.imgPath}
                 />
               ))}
             </ul>
-
-            {/* <p>20/20</p> */}
           </div>
           <div className="carousel_button">
             <button onClick={leftCarouselButton}>
@@ -64,15 +85,15 @@ const ProductDetail = () => {
               <img alt="arrow-right" src="../images/icon/arrow-right.png" />
             </button>
           </div>
-          {/* <div className="yellow_square"></div> */}
+
           <div className="product_image_sub">
             <ul className="sub_carousel_box">
-              {PRODUCT_DATA.map(value => (
+              {PRODUCT_DATA.map(products => (
                 <ProductSubCarousel
-                  key={value.id}
+                  key={products.id}
                   subCarousel={subCarousel}
-                  headphoneId={value.headphone_id}
-                  imgPath={value.imgPath}
+                  headphoneId={products.headphone_id}
+                  imgPath={products.imgPath}
                 />
               ))}
             </ul>
@@ -81,59 +102,69 @@ const ProductDetail = () => {
 
         <div className="product_detail">
           <div className="product_name">
-            <h1>DROP INVDROP INVDROP INVDROPINVDROPINV</h1>
+            <h1>{productInfo.message.name}</h1>
           </div>
           <div className="product_price">
             <h2>
-              {/* {PRODUCT_DATA.map(value => (
-                <ProductPrice key={value.id} price={value.price} />
-              ))} */}
-              <ProductPrice />
+              <ProductPrice productInfo={productInfo} />
             </h2>
           </div>
           <div className="product_option">
-            <p>Option</p>
+            <p>Case Color</p>
+
+            <OptionButton
+              changeOption={changeOption}
+              productInfo={productInfo}
+            />
+
+            <p>Switch Type</p>
             <div className="product_option_select">
-              {/* map을 돌려서 데이터를 받아서 옵션을 선택하게 한다. */}
               <form onSubmit={purchaseSubmit}>
-                <PurchaseButton mainCarousel={mainCarousel} />
-                <PurchaseButton mainCarousel={mainCarousel} />
-                <PurchaseButton mainCarousel={mainCarousel} />
-                <PurchaseButton mainCarousel={mainCarousel} />
-                <div className="product_purchase">
-                  <button>ADD TO BUTTON</button>
-                </div>
+                <PurchaseButton
+                  changeOption={changeOption}
+                  productInfo={productInfo}
+                />
+                <button className="product_purchase" onClick={addToCart}>
+                  ADD TO CART
+                </button>
+                {modal === 'cart' && <Cart />}
               </form>
             </div>
           </div>
         </div>
       </div>
-      {/* footer에 있는 icon component를 사용할 예정입니다. */}
+
       <div className="icon_container"></div>
       <div className="overview_container">
         <div className="overview_title">
-          <span>OVERVIEW</span>
-          <span>DETAILS</span>
-          <span>REVIEWS</span>
-          <span>PHOTOS</span>
-          <span>DISCUSSION</span>
+          <span>
+            <button>OVERVIEW</button>
+          </span>
+          <span>
+            <button>DETAILS</button>
+          </span>
+          <span>
+            <button>REVIEWS({productInfo.message.review_count})</button>
+          </span>
+          <span>
+            <button>PHOTOS</button>
+          </span>
+          <span>
+            <button>DISCUSSION</button>
+          </span>
         </div>
       </div>
       <div className="overview_article_container">
         <div className="overview_article">
           <div className="overview_article_section">
             <div className="overview_article_section_main">
-              <h1>May be Article Title1</h1>
+              <h1>{productInfo.message.name}</h1>
             </div>
             <div className="overview_article_section_sub">
-              <p>
-                dlajdadadsdlajdadad sdlajdadadsdla jdadadsdl ajda
-                dadsdlajdadadsdlajdadadsdlajdadadsdlajdadadsdlajdadadsdlajdadads
-              </p>
+              <p>{productInfo.message.overview}</p>
             </div>
           </div>
         </div>
-        <div></div>
       </div>
     </div>
   );

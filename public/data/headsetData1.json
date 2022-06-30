@@ -1,0 +1,106 @@
+{
+  "message": {
+    "name": "DROP CTRL MECHANICAL KEYBOARD",
+    "thumbnail_image_url": "https://massdrop-s3.imgix.net/product-images/drop-ctrl-mechanical-keyboard/FP/CH2mwjcSQiqeHYSZMUbg_ctrlpc.png?auto=format&fm=jpg&fit=fill&w=820&h=547&bg=f0f0f0&dpr=2&chromasub=444&q=35",
+    "overview": "“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries .but also the leap into electronic typesetting. remaining essen",
+    "detail": "“A computer keyboard is a peripheral input device modeled after the typewriter keyboard which uses an arrangement of buttons or keys to act as mechanical levers or electronic switches. Replacing early punched cards and paper tape technology, interaction via teleprinter-style keyboards have been the main input method for computers since the 1970s, supplemented by the computer mouse since the 1980s.”",
+    "maker": "DROP",
+    "rate_count": 123,
+    "review_count": 723,
+    "sold_count": 23,
+    "sub_category": "TENKEYLESS (TKL) KEYBOARDS",
+    "main_category": "Mechanical Keyboards",
+    "product_info": [
+      {
+        "product_id": 17,
+        "color": ["Black", "SpaceGray"],
+        "switch_type": [
+          {
+            "switch_id": 1,
+            "Switch_value": "Halo Ture (60g Tactile)",
+            "stock": 123,
+            "price": 200,
+            "color": "Black"
+          },
+          {
+            "switch_id": 2,
+            "Switch_value": "Kaihua Box White (Clicky)",
+            "stock": 0,
+            "price": 200,
+            "color": "Black"
+          },
+          {
+            "switch_id": 3,
+            "Switch_value": "Kaihua Speed Sliver (Linear)",
+            "stock": 10,
+            "price": 200,
+            "color": "Black"
+          },
+          {
+            "switch_id": 4,
+            "Switch_value": "Cherry MX Blue RGB (Clicky)",
+            "stock": 0,
+            "price": 225,
+            "color": "Black"
+          },
+          {
+            "switch_id": 5,
+            "Switch_value": "Cherry MX Brown RGB (Tactile) ",
+            "stock": 10,
+            "price": 225,
+            "color": "Black"
+          },
+          {
+            "switch_id": 6,
+            "Switch_value": "Kaihua Box White (Clicky) ",
+            "stock": 10,
+            "price": 225,
+            "color": "Black"
+          },
+          {
+            "switch_id": 7,
+            "Switch_value": "Halo Ture (60g Tactile)",
+            "stock": 123,
+            "price": 200,
+            "color": "SpaceGray"
+          },
+          {
+            "switch_id": 8,
+            "Switch_value": "Kaihua Box White (Clicky)",
+            "stock": 0,
+            "price": 200,
+            "color": "SpaceGray"
+          },
+          {
+            "switch_id": 9,
+            "Switch_value": "Kaihua Speed Sliver (Linear)",
+            "stock": 10,
+            "price": 200,
+            "color": "SpaceGray"
+          },
+          {
+            "switch_id": 10,
+            "Switch_value": "Cherry MX Blue RGB (Clicky)",
+            "stock": 0,
+            "price": 225,
+            "color": "SpaceGray"
+          },
+          {
+            "switch_id": 11,
+            "Switch_value": "Cherry MX Brown RGB (Tactile) ",
+            "stock": 10,
+            "price": 225,
+            "color": "SpaceGray"
+          },
+          {
+            "switch_id": 12,
+            "Switch_value": "Kaihua Box White (Clicky) ",
+            "stock": 10,
+            "price": 225,
+            "color": "SpaceGray"
+          }
+        ]
+      }
+    ]
+  }
+}

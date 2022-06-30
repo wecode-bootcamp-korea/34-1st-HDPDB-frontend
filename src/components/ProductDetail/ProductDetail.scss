@@ -114,7 +114,7 @@
           padding: 10px;
           margin: 0 10px 10px 0;
           border: none;
-          font-size: 25px;
+          font-size: 10px;
           &:hover {
             background-color: $buttonColorYellow;
           }
@@ -124,15 +124,13 @@
             color: white;
           }
         }
-      }
-      .product_purchase {
-        margin: 20px;
-        button {
+        .product_purchase {
+          margin-top: 30px;
           background-color: $buttonColorBlack;
           color: white;
           width: 400px;
           height: 60px;
-          font-size: 20px;
+          font-size: 25px;
           &:hover {
             background-color: $buttonColorYellow;
             transition: ease-in-out 0.5s;
@@ -158,14 +156,32 @@
       height: 80px;
       border-top: 1px solid grey;
       border-bottom: 1px solid grey;
-
       span {
-        font-size: 20px;
+        position: relative;
+        button {
+          background-color: transparent;
+          border: none;
+          font-size: 20px;
+        }
+        &:before {
+          content: '';
+          position: absolute;
+          margin-bottom: -5px;
+          bottom: 0;
+          height: 4px;
+          width: 0;
+          background-color: $buttonColorYellow;
+          transition: 0.7s;
+        }
+        &:hover:before {
+          width: 100%;
+        }
       }
     }
   }
   .overview_article_container {
     margin-top: 40px;
+
     .overview_article {
       .overview_article_section {
         display: flex;
