@@ -1,8 +1,22 @@
 import React, { useState } from 'react';
+import Login from '../Login/Login';
 import './Nav.scss';
+import '../Login/Login.scss';
 
 const Nav = () => {
   const [serchModal, setSearchModal] = useState(false);
+  const [currentModal, setCurrentModal] = useState('');
+  console.log(currentModal);
+  const dataConvert = () => {
+    if (currentModal === 'login') {
+      setCurrentModal('signup');
+    } else {
+      setCurrentModal('login');
+    }
+  };
+  const closeModal = () => {
+    setCurrentModal('');
+  };
 
   const setSerchModalStatus = () => {
     setSearchModal(!serchModal);
@@ -54,8 +68,36 @@ const Nav = () => {
             <div className="header_cart_alert dotAlert" />
             <img src="/images/icon/icons8-shopping-cart-96.png" alt="search" />
           </li>
-          <li className="header_login logout">LOG IN</li>
-          <li className="header_signUp logout">SIGN UP</li>
+          <li
+            className="header_login logout"
+            onClick={() => setCurrentModal('login')}
+          >
+            LOG IN
+          </li>
+          {currentModal === 'login' && (
+            <Login
+              data={LOGIN_DATA}
+              dataConvert={dataConvert}
+              closeModal={closeModal}
+              setCurrentModal={setCurrentModal}
+            />
+          )}
+          <Login />
+
+          <li
+            className="header_signUp logout"
+            onClick={() => setCurrentModal('signup')}
+          >
+            SIGN UP
+          </li>
+          {currentModal === 'signup' && (
+            <Login
+              data={SIGNUP_DATA}
+              closeModal={closeModal}
+              dataConvert={dataConvert}
+              setCurrentModal={setCurrentModal}
+            />
+          )}
           <li className="header_user login">
             <img src="/images/icon/icons8-user-96.png" alt="search" />
             <ul className="user_subMenu">
@@ -133,3 +175,25 @@ const COMMUNITY_SUB = [
     menu: 'COMMUNITY',
   },
 ];
+
+const SIGNUP_DATA = {
+  title: 'GET $10 OFF',
+  subtitle:
+    'Sign up and get $10 off your first Drop Studio purchase. Check your inbox to redeem.',
+  facebook: 'Continue WITH FACEBOOK',
+  google: 'Continue with Google',
+  btn: 'Continue',
+  text: 'We will never spam you or sell your email to third parties.',
+  footer: 'Already a member? Log In',
+  url: 'signUp',
+};
+
+const LOGIN_DATA = {
+  title: 'Log In To Drop',
+  facebook: 'LOG IN WITH FACEBOOK',
+  google: 'LOG IN WITH GOOGLE',
+  btn: 'LOG IN',
+  text: 'I FORGOT MY PASSWORD',
+  footer: 'Not a member yet? Sign up',
+  url: 'signIn',
+};
