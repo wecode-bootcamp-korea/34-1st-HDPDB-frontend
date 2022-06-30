@@ -50,17 +50,13 @@ const Nav = () => {
           <li className="header_search" onClick={setSerchModalStatus}>
             <img src="/images/icon/icons8-search-24.png" alt="search" />
           </li>
-          <li className="header_alert">
-            <div className="header_alert_alert" />
-            <img src="/images/icon/icons8-bell-24.png" alt="알람아이콘" />
-          </li>
           <li className="header_cart">
             <div className="header_cart_alert dotAlert" />
             <img src="/images/icon/icons8-shopping-cart-96.png" alt="search" />
           </li>
-          <li className="header_login">LOG IN</li>
-          <li className="header_signUp">SIGN UP</li>
-          <li className="header_user">
+          <li className="header_login logout">LOG IN</li>
+          <li className="header_signUp logout">SIGN UP</li>
+          <li className="header_user login">
             <img src="/images/icon/icons8-user-96.png" alt="search" />
             <ul className="user_subMenu">
               <li className="user_subMenu_profile user_subMenu_line">
