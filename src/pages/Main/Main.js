@@ -15,10 +15,9 @@ const Main = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`data/productList.json/${params.listName}`, {
+    fetch(`10.58.3.149:8000/api/product_groups?`, {
       headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
+        Accept: 'application / json',
       },
     })
       .then(productList => productList.json())
@@ -35,8 +34,6 @@ const Main = () => {
   const goToProductDetail = id => {
     navigate(`/purchase/${id}`);
   };
-  // if (productList.length === 0) return <>Loadding</>;
-  console.log(productList.length);
 
   return (
     <div className="main">
@@ -61,7 +58,7 @@ const Main = () => {
           </div>
         </div>
         <div className="main_section">
-          {/* <Filter /> */}
+          <Filter />
           <div className="productList">
             <div className="productList_banners">
               {BANNER.map(ad_banner => {
@@ -115,6 +112,7 @@ const Main = () => {
                 )}
               </div>
             </div>
+
             <ProductList
               productList={productList}
               goToProductDetail={goToProductDetail}
