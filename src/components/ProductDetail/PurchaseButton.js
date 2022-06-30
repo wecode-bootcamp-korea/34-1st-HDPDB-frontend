@@ -1,15 +1,24 @@
-const PurchaseButton = ({ productInfo, changeOption }) => {
-  return Object.values(productInfo)[0].product_info.map(option => {
-    return (
-      <button
-        onClick={changeOption}
-        key={option.id}
-        value={option.product_option[1].type}
-      >
-        {option.product_option[1].type}
-      </button>
-    );
-  });
+import { useState } from 'react';
+
+const PurchaseButton = ({ switchOption, caseType }) => {
+  const [value, setValue] = useState('');
+  const [borderi, setBorderi] = useState(false);
+
+  const onClick = () => {
+    setValue(switchOption);
+    setBorderi(!borderi);
+  };
+
+  return (
+    <button
+      onClick={onClick}
+      value={caseType}
+      style={{ border: borderi ? '1px solid black' : ' none' }}
+      name={value}
+    >
+      {switchOption}
+    </button>
+  );
 };
 
 export default PurchaseButton;

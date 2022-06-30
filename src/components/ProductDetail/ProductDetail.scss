@@ -79,7 +79,22 @@
 
     .product_detail {
       margin: 60px 0px 0px 25px;
-
+      .product_option {
+        button {
+          padding: 10px;
+          margin-right: 20px;
+          font-size: 20px;
+          border: none;
+          &:hover {
+            background-color: $buttonColorYellow;
+          }
+          &:active {
+            border: 1px solid gray;
+            background-color: $buttonColorBlack;
+            color: white;
+          }
+        }
+      }
       .product_name {
         font-size: 50px;
       }
@@ -112,9 +127,9 @@
       .product_option_select {
         button {
           padding: 10px;
-          margin: 0 10px 10px 0;
+          margin: 0 15px 10px 0;
           border: none;
-          font-size: 10px;
+          font-size: 15px;
           &:hover {
             background-color: $buttonColorYellow;
           }

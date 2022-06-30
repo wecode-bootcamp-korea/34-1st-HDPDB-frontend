@@ -11,8 +11,10 @@ import './ProductDetail.scss';
 
 const ProductDetail = () => {
   const [productInfo, setProductInfo] = useState([]);
-  const params = useParams();
   const [modal, setModal] = useState('');
+  const [color, setColor] = useState('');
+  const [caseType, setcaseType] = useState('');
+  const params = useParams();
 
   useEffect(() => {
     fetch(`data/headsetData.json`)
@@ -22,9 +24,7 @@ const ProductDetail = () => {
   }, [params.productId]);
 
   const navigation = useNavigate();
-  const changeOption = () => {
-    navigation(`purchase/${Number(params.productId)}`);
-  };
+
   const addToCart = () => {
     setModal('cart');
   };
@@ -53,14 +53,35 @@ const ProductDetail = () => {
   const purchaseSubmit = event => {
     event.preventDefault();
   };
-
+  const selectColorOption = () => {
+    setColor(color);
+  };
+  const selectCaseType = () => {
+    setcaseType(caseType);
+  };
   if (productInfo.length === 0) return <>Loadding</>;
-  const arr = [];
+  const caseColorArr = [];
+  const switchTypeArr = [];
+
   const {
     message: { product_info },
   } = productInfo;
 
-  console.log(arr);
+  for (let i = 0; i < product_info.length; i++) {
+    const { product_option } = product_info[i];
+
+    if (!caseColorArr.includes(product_option[0].type)) {
+      caseColorArr.push(product_option[0].type);
+    }
+  }
+
+  for (let j = 0; j < product_info.length; j++) {
+    const { product_option } = product_info[j];
+    if (!switchTypeArr.includes(product_option[1].type)) {
+      switchTypeArr.push(product_option[1].type);
+    }
+  }
+  console.log(color, caseType);
   return (
     <div className="product-detail">
       <div className="product_container">
@@ -112,18 +133,31 @@ const ProductDetail = () => {
           <div className="product_option">
             <p>Case Color</p>
 
-            <OptionButton
-              changeOption={changeOption}
-              productInfo={productInfo}
-            />
+            {caseColorArr.map(caseColor => {
+              return (
+                <OptionButton
+                  key={caseColor}
+                  caseColor={caseColor}
+                  color={color}
+                  selectColorOption={selectColorOption}
+                />
+              );
+            })}
 
             <p>Switch Type</p>
             <div className="product_option_select">
               <form onSubmit={purchaseSubmit}>
-                <PurchaseButton
-                  changeOption={changeOption}
-                  productInfo={productInfo}
-                />
+                {switchTypeArr.map(switchOption => {
+                  return (
+                    <PurchaseButton
+                      key={switchOption}
+                      caseType={caseType}
+                      switchOption={switchOption}
+                      selectCaseType={selectCaseType}
+                    />
+                  );
+                })}
+
                 <button className="product_purchase" onClick={addToCart}>
                   ADD TO CART
                 </button>
