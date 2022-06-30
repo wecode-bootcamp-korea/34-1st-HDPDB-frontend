@@ -10,7 +10,7 @@ import './PurchaseDetail.scss';
 const PurchaseDetail = () => {
   const [detailCart, setDetailCart] = useState([]);
   useEffect(() => {
-    fetch('/data/purchaseData.json')
+    fetch('/data/itemsData.json')
       .then(res => res.json())
       .then(data => setDetailCart(data));
   }, []);
@@ -87,7 +87,7 @@ const PurchaseDetail = () => {
                 </div>
                 <div className="items_delete_price">
                   <span className="items_price">
-                    {`${items.price * items.quantity}`.toLocaleString('en-US', {
+                    {(items.price * items.quantity).toLocaleString('en-US', {
                       style: 'currency',
                       currency: 'USD',
                     })}
@@ -103,7 +103,6 @@ const PurchaseDetail = () => {
             </div>
             <div className="subtotal_detail_box">
               <span>
-                $
                 {detailCart
                   .reduce((a, b) => {
                     return a + b.price * b.quantity;
@@ -119,7 +118,6 @@ const PurchaseDetail = () => {
           <div className="total_price_box">
             <span className="total_title">Total</span>
             <span className="total_price">
-              USD ${' '}
               {detailCart
                 .reduce((a, b) => {
                   return a + b.price * b.quantity;
@@ -128,7 +126,7 @@ const PurchaseDetail = () => {
                   style: 'currency',
                   currency: 'USD',
                 })}
-            </span>{' '}
+            </span>
           </div>
         </div>
       </div>
