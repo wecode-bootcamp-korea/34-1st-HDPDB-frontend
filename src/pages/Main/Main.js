@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+
 import Filter from './Filter';
 import ProductList from './ProductList';
 import './Main.scss';
@@ -10,25 +11,33 @@ const Main = () => {
   const [selectSortOption, setSelectSortOPtion] = useState('RECOMMENDED');
   const [productList, setProductList] = useState([]);
 
-  const [priceCheckList, setPriceCheckList] = useState([]);
-  const [stockCheckList, setStockCheckList] = useState([]);
+  const params = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('data/productList.json')
+    fetch(`data/productList.json/${params.listName}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    })
       .then(productList => productList.json())
       .then(productList => {
+        console.log(productList);
         setProductList(productList);
       });
-  }, []);
+  }, [params.listName]);
 
   const showSelectBox = () => {
     setSelectBoxStatus(!selectBoxStatus);
   };
-  const navigate = useNavigate();
 
   const goToProductDetail = id => {
     navigate(`/purchase/${id}`);
   };
+  // if (productList.length === 0) return <>Loadding</>;
+  console.log(productList.length);
+
   return (
     <div className="main">
       <div className="main_contents">
@@ -52,7 +61,7 @@ const Main = () => {
           </div>
         </div>
         <div className="main_section">
-          <Filter />
+          {/* <Filter /> */}
           <div className="productList">
             <div className="productList_banners">
               {BANNER.map(ad_banner => {
