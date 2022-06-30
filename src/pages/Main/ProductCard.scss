@@ -1,0 +1,92 @@
+$defaultColor: #222222;
+$pointColor: #fdcf41;
+$red: #e3352c;
+$defaultBorder: 1px solid #eeeeee;
+
+.product_card {
+  width: 32%;
+  height: 560px;
+  background-color: #f0f0f0;
+  transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    box-shadow: 0 2px 10px rgba(#000000, 0.1);
+  }
+  .card_header {
+    .card_icon_box {
+      display: flex;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      background-color: $defaultColor;
+      .card_icon {
+        width: 20px;
+      }
+    }
+  }
+  .card_contents {
+    width: 100%;
+    padding: 4px 20px 20px 20px;
+
+    .card_product_image {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .card_product_title {
+      min-height: 80px;
+      padding-top: 20px;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 26px;
+    }
+    .card_product_price {
+      display: flex;
+      padding-top: 10px;
+      line-height: 20px;
+      font-size: 18px;
+
+      .card_sale_info {
+        padding-left: 20px;
+
+        .card_default_price {
+          padding-right: 4px;
+          color: #9f9f9f;
+          text-decoration: line-through;
+        }
+
+        .card_salePercent {
+          padding-left: 4px;
+        }
+      }
+    }
+    .card_review_grade {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 12px;
+
+      &:hover {
+        color: $pointColor;
+      }
+      .reviwe_grade {
+        margin-left: 4px;
+      }
+    }
+    .free_return {
+      margin-top: 10px;
+      font-size: 12px;
+    }
+    .card_sale_rate_info {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 30px;
+      font-size: 12px;
+
+      .product_review_count.product_review_count {
+        &:hover {
+          color: $pointColor;
+        }
+      }
+    }
+  }
+}
