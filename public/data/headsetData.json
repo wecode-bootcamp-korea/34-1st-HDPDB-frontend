@@ -1,0 +1,196 @@
+{
+  "message": {
+    "name": "DROP CTRL MECHANICAL KEYBOARD",
+    "thumbnail_image_url": "https://massdrop-s3.imgix.net/product-images/drop-ctrl-mechanical-keyboard/FP/CH2mwjcSQiqeHYSZMUbg_ctrlpc.png?auto=format&fm=jpg&fit=fill&w=820&h=547&bg=f0f0f0&dpr=2&chromasub=444&q=35",
+    "overview": "“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries .but also the leap into electronic typesetting. remaining essen",
+    "detail": "“A computer keyboard is a peripheral input device modeled after the typewriter keyboard which uses an arrangement of buttons or keys to act as mechanical levers or electronic switches. Replacing early punched cards and paper tape technology, interaction via teleprinter-style keyboards have been the main input method for computers since the 1970s, supplemented by the computer mouse since the 1980s.”",
+    "maker": "DROP",
+    "rate_count": 123,
+    "review_count": 723,
+    "sold_count": 23,
+    "sub_category": "TENKEYLESS (TKL) KEYBOARDS",
+    "main_category": "Mechanical Keyboards",
+    "product_info": [
+      {
+        "product_id": 17,
+        "stock": 15,
+        "price": 200,
+        "product_option": [
+          {
+            "name": "Case Color",
+            "type": "Black"
+          },
+          {
+            "name": "Switch Type",
+            "type": "Halo Clear (65g tactile)"
+          }
+        ]
+      },
+      {
+        "product_id": 18,
+        "stock": 123,
+        "price": 200,
+        "product_option": [
+          {
+            "name": "Case Color",
+            "type": "Black"
+          },
+          {
+            "name": "Switch Type",
+            "type": "Halo Ture (60g Tactile)"
+          }
+        ]
+      },
+      {
+        "product_id": 19,
+        "stock": 0,
+        "price": 200,
+        "product_option": [
+          {
+            "name": "Case Color",
+            "type": "Black"
+          },
+          {
+            "name": "Switch Type",
+            "type": "Kaihua Box White (Clicky)"
+          }
+        ]
+      },
+      {
+        "product_id": 20,
+        "stock": 10,
+        "price": 200,
+        "product_option": [
+          {
+            "name": "Case Color",
+            "type": "Black"
+          },
+          {
+            "name": "Switch Type",
+            "type": "Kaihua Speed Sliver (Linear)"
+          }
+        ]
+      },
+      {
+        "product_id": 21,
+        "stock": 0,
+        "price": 225,
+        "product_option": [
+          {
+            "name": "Case Color",
+            "type": "Black"
+          },
+          {
+            "name": "Switch Type",
+            "type": "Cherry MX Blue RGB (Clicky)"
+          }
+        ]
+      },
+      {
+        "product_id": 22,
+        "stock": 10,
+        "price": 225,
+        "product_option": [
+          {
+            "name": "Case Color",
+            "type": "Black"
+          },
+          {
+            "name": "Switch Type",
+            "type": "Cherry MX Brown RGB (Tactile)"
+          }
+        ]
+      },
+      {
+        "product_id": 23,
+        "stock": 15,
+        "price": 200,
+        "product_option": [
+          {
+            "name": "Case Color",
+            "type": "Black"
+          },
+          {
+            "name": "Switch Type",
+            "type": "Halo Clear (65g tactile)"
+          }
+        ]
+      },
+      {
+        "product_id": 24,
+        "stock": 123,
+        "price": 200,
+        "product_option": [
+          {
+            "name": "Case Color",
+            "type": "Space Gray"
+          },
+          {
+            "name": "Switch Type",
+            "type": "Halo Ture (60g Tactile)"
+          }
+        ]
+      },
+      {
+        "product_id": 25,
+        "stock": 0,
+        "price": 200,
+        "product_option": [
+          {
+            "name": "Case Color",
+            "type": "Space Gray"
+          },
+          {
+            "name": "Switch Type",
+            "type": "Kaihua Box White (Clicky)"
+          }
+        ]
+      },
+      {
+        "product_id": 26,
+        "stock": 10,
+        "price": 200,
+        "product_option": [
+          {
+            "name": "Case Color",
+            "type": "Space Gray"
+          },
+          {
+            "name": "Switch Type",
+            "type": "Kaihua Speed Sliver (Linear)"
+          }
+        ]
+      },
+      {
+        "product_id": 27,
+        "stock": 0,
+        "price": 225,
+        "product_option": [
+          {
+            "name": "Case Color",
+            "type": "Space Gray"
+          },
+          {
+            "name": "Switch Type",
+            "type": "Cherry MX Blue RGB (Clicky)"
+          }
+        ]
+      },
+      {
+        "product_id": 28,
+        "stock": 10,
+        "price": 225,
+        "product_option": [
+          {
+            "name": "Case Color",
+            "type": "Space Gray"
+          },
+          {
+            "name": "Switch Type",
+            "type": "Cherry MX Brown RGB (Tactile)"
+          }
+        ]
+      }
+    ]
+  }
+}

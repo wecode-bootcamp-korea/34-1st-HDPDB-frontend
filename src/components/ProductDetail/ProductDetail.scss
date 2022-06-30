@@ -1,0 +1,224 @@
+@import '../../styles/variables.scss';
+
+.product-detail {
+  padding: 0px 20px;
+
+  .product_container {
+    display: flex;
+    max-width: 1600px;
+    margin: 0 auto;
+
+    .product_thumbnail {
+      width: 70%;
+
+      .product_image_main {
+        height: 700px;
+        margin-left: 70px;
+        overflow: hidden;
+        .main_carousel_box {
+          width: 10000px;
+          display: flex;
+          overflow: hidden;
+          .main_image_container {
+            transition: all 0.5s;
+            img {
+              width: 1050px;
+              height: 700px;
+            }
+          }
+        }
+      }
+      .carousel_button {
+        display: flex;
+        position: relative;
+        justify-content: flex-end;
+        top: -25px;
+        margin-left: 150px;
+
+        button {
+          width: 70px;
+          height: 50px;
+          border: none;
+          background-color: $buttonColorYellow;
+          &:hover {
+            background-color: $buttonColorBlack;
+          }
+        }
+      }
+      .yellow_square {
+        width: 157px;
+        height: 100px;
+        position: relative;
+        margin: 0;
+        top: 100px;
+        border: 10px solid $buttonColorYellow;
+      }
+      .product_image_sub {
+        display: flex;
+        overflow: hidden;
+        .sub_carousel_box {
+          display: flex;
+          width: 10000px;
+
+          .sub_image_container {
+            transition: all 0.5s;
+            overflow: hidden;
+            min-width: 150px;
+            height: 100px;
+            margin: 0 5px;
+
+            img {
+              width: 100%;
+              height: 100px;
+            }
+          }
+        }
+      }
+      ///
+    }
+
+    .product_detail {
+      margin: 60px 0px 0px 25px;
+      .product_option {
+        button {
+          padding: 10px;
+          margin-right: 20px;
+          font-size: 20px;
+          border: none;
+          &:hover {
+            background-color: $buttonColorYellow;
+          }
+          &:active {
+            border: 1px solid gray;
+            background-color: $buttonColorBlack;
+            color: white;
+          }
+        }
+      }
+      .product_name {
+        font-size: 50px;
+      }
+
+      .product_price {
+        font-size: 40px;
+
+        .product_price_box {
+          display: flex;
+          .product_sale_price {
+            color: gray;
+            text-decoration: line-through;
+          }
+          p {
+            margin-right: 20px;
+          }
+        }
+      }
+
+      .product_option p {
+        font-size: 20px;
+        margin: 20px 20px 40px 20px;
+      }
+      .product_option,
+      .product_price,
+      .product_name {
+        margin-bottom: 20px;
+      }
+
+      .product_option_select {
+        button {
+          padding: 10px;
+          margin: 0 15px 10px 0;
+          border: none;
+          font-size: 15px;
+          &:hover {
+            background-color: $buttonColorYellow;
+          }
+          &:active {
+            border: 1px solid gray;
+            background-color: $buttonColorBlack;
+            color: white;
+          }
+        }
+        .product_purchase {
+          margin-top: 30px;
+          background-color: $buttonColorBlack;
+          color: white;
+          width: 400px;
+          height: 60px;
+          font-size: 25px;
+          &:hover {
+            background-color: $buttonColorYellow;
+            transition: ease-in-out 0.5s;
+            color: $buttonColorBlack;
+            background: linear-gradient(
+              to left,
+              $buttonColorYellow 50%,
+              $buttonColorBlack 50%
+            );
+            background-size: 200% 100%;
+            background-position: right bottom;
+          }
+        }
+      }
+    }
+  }
+  .overview_container {
+    margin-top: 40px;
+    .overview_title {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      height: 80px;
+      border-top: 1px solid grey;
+      border-bottom: 1px solid grey;
+      span {
+        position: relative;
+        button {
+          background-color: transparent;
+          border: none;
+          font-size: 20px;
+        }
+        &:before {
+          content: '';
+          position: absolute;
+          margin-bottom: -5px;
+          bottom: 0;
+          height: 4px;
+          width: 0;
+          background-color: $buttonColorYellow;
+          transition: 0.7s;
+        }
+        &:hover:before {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .overview_article_container {
+    margin-top: 40px;
+
+    .overview_article {
+      .overview_article_section {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        width: 1000px;
+        h1 {
+          font-size: 50px;
+        }
+        p {
+          font-size: 25px;
+        }
+        .overview_article_section_main {
+          width: 50%;
+          height: 500px;
+        }
+        .overview_article_section_sub {
+          width: 50%;
+          height: 500px;
+          word-break: break-all;
+        }
+      }
+    }
+  }
+}
