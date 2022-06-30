@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "products": "Drop ALT High-Profile",
+    "color": "Black",
+    "option": "Halo True",
+    "price": 179.0,
+    "img": "images/item1.webp",
+    "quantity": 2
+  },
+  {
+    "id": 2,
+    "products": "Drop CTRL Mechanical",
+    "color": "Space Grey",
+    "option": "Halo Clear",
+    "price": 159.0,
+    "img": "images/item2.webp",
+    "quantity": 2
+  },
+  {
+    "id": 3,
+    "products": "Drop CTRL Barebones",
+    "color": "Blue",
+    "option": "Kaihua Box White",
+    "price": 110.0,
+    "img": "images/item3.webp",
+    "quantity": 1
+  }
+]
