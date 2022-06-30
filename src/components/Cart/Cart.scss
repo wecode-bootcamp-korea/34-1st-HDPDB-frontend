@@ -1,9 +1,10 @@
 @import '../../styles/variables.scss';
 
-.main {
+.cart_main {
   display: flex;
   justify-content: flex-end;
 }
+
 .overlay {
   width: 100vw;
   height: 100vh;
@@ -21,7 +22,7 @@
   background-color: white;
   z-index: 11;
   padding: 20px;
-  width: 400px;
+  width: 450px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -69,10 +70,15 @@
       width: 86px;
       height: 86px;
     }
+
+    .items_name {
+      font-size: 18px;
+    }
     .items_description {
       display: flex;
       flex-direction: column;
       margin: 5px 0 0 10px;
+      width: 50%;
 
       .items_option {
         margin-top: 5px;
@@ -80,8 +86,11 @@
       }
       .quantity_box {
         border: 1px outset black;
-        margin-top: 15px;
-        width: 66px;
+        width: 90px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 15px;
         button {
           border: none;
           background-color: white;

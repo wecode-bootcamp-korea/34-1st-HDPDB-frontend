@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import Login from '../Login/Login';
+import Cart from '../Cart/Cart';
 import './Nav.scss';
 import '../Login/Login.scss';
+import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
   const [serchModal, setSearchModal] = useState(false);
   const [currentModal, setCurrentModal] = useState('');
-  console.log(currentModal);
+  const navigate = useNavigate();
+  const [cartModal, setCartModal] = useState('');
   const dataConvert = () => {
     if (currentModal === 'login') {
       setCurrentModal('signup');
@@ -14,8 +17,15 @@ const Nav = () => {
       setCurrentModal('login');
     }
   };
+
+  const fuckingGoHome = () => {
+    navigate('/');
+  };
   const closeModal = () => {
     setCurrentModal('');
+  };
+  const closeCart = () => {
+    setCartModal('');
   };
 
   const setSerchModalStatus = () => {
@@ -25,7 +35,7 @@ const Nav = () => {
   return (
     <div className="nav">
       <div className="nav_menu">
-        <h1 className="header_logo">
+        <h1 className="header_logo" onClick={fuckingGoHome}>
           <img
             className="leader_logo_image"
             src="/images/logo/dropCI-black.png"
@@ -33,7 +43,9 @@ const Nav = () => {
           />
         </h1>
         <ul className="header_shop_nav">
-          <li className="nav_underLine nav_shop">SHOP</li>
+          <li className="nav_underLine nav_shop" onClick={fuckingGoHome}>
+            SHOP
+          </li>
           <li className="nav_underLine nav_mechKeys">
             MECH_KEYS
             <ul className="header_sub_nav mechKyes_sub">
@@ -64,10 +76,13 @@ const Nav = () => {
           <li className="header_search" onClick={setSerchModalStatus}>
             <img src="/images/icon/icons8-search-24.png" alt="search" />
           </li>
-          <li className="header_cart">
+          <li className="header_cart" onClick={() => setCartModal('cart')}>
             <div className="header_cart_alert dotAlert" />
             <img src="/images/icon/icons8-shopping-cart-96.png" alt="search" />
           </li>
+          {cartModal === 'cart' && (
+            <Cart closeCart={closeCart} setCartModal={setCartModal} />
+          )}
           <li
             className="header_login logout"
             onClick={() => setCurrentModal('login')}
@@ -82,7 +97,6 @@ const Nav = () => {
               setCurrentModal={setCurrentModal}
             />
           )}
-          <Login />
 
           <li
             className="header_signUp logout"

@@ -27,8 +27,8 @@ const Main = () => {
     setSelectBoxStatus(!selectBoxStatus);
   };
 
-  const goToProductDetail = id => {
-    navigate(`/purchase/${id}`);
+  const goToProductDetail = () => {
+    navigate('/purchase');
   };
 
   return (

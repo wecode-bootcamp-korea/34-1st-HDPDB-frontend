@@ -11,12 +11,9 @@ const ProductCard = ({ productList, goToProductDetail }) => {
     discount_price,
     price,
   } = productList;
+
   return (
-    <div
-      className="product_card"
-      onClick={() => goToProductDetail(id)}
-      key={id}
-    >
+    <div className="product_card" onClick={goToProductDetail} key={id}>
       <div className="card_header">
         <div className="card_icon_box">
           <img

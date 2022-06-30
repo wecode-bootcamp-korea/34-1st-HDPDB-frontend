@@ -11,10 +11,10 @@ import './ProductDetail.scss';
 
 const ProductDetail = () => {
   const [productInfo, setProductInfo] = useState([]);
-  const [modal, setModal] = useState('');
   const [color, setColor] = useState('');
   const [caseType, setcaseType] = useState('');
   const params = useParams();
+  const [cartModal, setCartModal] = useState('');
 
   useEffect(() => {
     fetch(`data/headsetData.json`)
@@ -22,9 +22,6 @@ const ProductDetail = () => {
       .then(products => setProductInfo(products));
   }, [params.productId]);
 
-  const addToCart = () => {
-    setModal('cart');
-  };
   const [mainCarousel, setMainCarousel] = useState(0);
   const [subCarousel, setSubCarousel] = useState(0);
   const leftCarouselButton = () => {
@@ -35,6 +32,10 @@ const ProductDetail = () => {
       setMainCarousel(mainCarousel + 1050);
       setSubCarousel(subCarousel + 160);
     }
+  };
+
+  const closeCart = () => {
+    setCartModal('');
   };
 
   const rightCarouselButton = () => {
@@ -155,10 +156,13 @@ const ProductDetail = () => {
                   );
                 })}
 
-                <button className="product_purchase" onClick={addToCart}>
+                <button
+                  className="product_purchase"
+                  onClick={() => setCartModal('cart')}
+                >
                   ADD TO CART
                 </button>
-                {modal === 'cart' && <Cart />}
+                {cartModal === 'cart' && <Cart closeCart={closeCart} />}
               </form>
             </div>
           </div>

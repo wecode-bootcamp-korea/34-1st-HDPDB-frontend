@@ -1,54 +1,91 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { CartLink } from './CartLink';
+import { CartItems } from './CartItems';
 import './Cart.scss';
 
-const Cart = ({ closeCart }) => {
+const Cart = ({ closeCart, setCartModal }) => {
   const [cartList, setCartList] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch('/data/itemsData.json')
       .then(res => res.json())
       .then(data => setCartList(data));
   }, []);
-
   const handleRemove = id => {
     const newList = cartList.filter(el => el.id !== id);
     setCartList(newList);
   };
 
-  // setCartList(items => {
-  //   return items.filter(el => {
-  //     return el.id !== id;
-  //   });
-  // });
+  const quantityIncrease = id => {
+    setCartList(el => {
+      const result = el.map(listItem => {
+        if (listItem.id === id) listItem.quantity += 1;
+        return listItem;
+      });
+      return result;
+    });
+  };
+
+  const quantityDecrease = id => {
+    setCartList(el => {
+      const result = el.map(listItem => {
+        if (listItem.id === id) listItem.quantity -= 1;
+        if (listItem.quantity === 0) handleRemove(listItem.id);
+        return listItem;
+      });
+      return result;
+    });
+  };
+
   return (
-    <div className="main">
+    <div className="cart_main ">
       <div className="overlay" />
       <div className="cart">
         <div className="cart_header">
           <div className="title">
             <div className="title_span_box">
               <span className="title_header"> YOUR CART</span>
-              {/* <span className="title_text"></span> */}
             </div>
             <button className="close_btn" onClick={closeCart}>
               X
             </button>
           </div>
-          {/* <CartBtn /> */}
-          <CartItems cartList={cartList} handleRemove={handleRemove} />
+          {cartList.length === 0 ? (
+            <CartLink />
+          ) : (
+            <CartItems
+              cartList={cartList}
+              handleRemove={handleRemove}
+              quantityIncrease={quantityIncrease}
+              quantityDecrease={quantityDecrease}
+            />
+          )}
         </div>
         <div className="cart_footer">
           <div className="total_price_box">
             <span className="total_text">Estimated total</span>
             <span className="total_price">
-              {'$ '}
-              {cartList.reduce((a, b) => {
-                return a + b.price * b.quantity;
-              }, 0)}
-              {'.00 '}
+              {cartList
+                .reduce((a, b) => {
+                  return a + b.price * b.quantity;
+                }, 0)
+                .toLocaleString('en-US', {
+                  style: 'currency',
+                  currency: 'USD',
+                })}
             </span>
           </div>
-          <button className="checkout_btn">CHECKOUT</button>
+          <button
+            className="checkout_btn"
+            onClick={() => {
+              navigate('/purchasedetail');
+              setCartModal('');
+            }}
+          >
+            CHECKOUT
+          </button>
         </div>
       </div>
     </div>
@@ -56,56 +93,3 @@ const Cart = ({ closeCart }) => {
 };
 
 export default Cart;
-
-const CartBtn = () => {
-  return (
-    <div className="btn_box">
-      <button className="cart_firstbtn">
-        SHOP DROP + THE LORD OF THE RINGS
-      </button>
-      <button className="cart_btn"> SHOP DROP + MARVEL</button>
-      <button className="cart_btn"> SHOP DROP ICON COLLECTION KEYBOARDS</button>
-    </div>
-  );
-};
-
-const CartItems = ({ cartList, handleRemove }) => {
-  return (
-    <>
-      {cartList.map(el => {
-        return (
-          <div className="items" key={el.id}>
-            <img src={el.img} alt="item" className="items_img" />
-            <div className="items_description">
-              <span className="items_name">{el.products}</span>
-              <span className="items_option">
-                {el.color}
-                {` / `}
-                {el.option}
-              </span>
-              <div className="quantity_box">
-                {' '}
-                <button className="minus_btn">-</button> {el.quantity}{' '}
-                <button className="plus_btn">+</button>{' '}
-              </div>
-            </div>
-            <div className="items_delete_price">
-              <button
-                type="button"
-                className="items_remove"
-                onClick={() => {
-                  handleRemove(el.id);
-                }}
-              >
-                Remove
-              </button>
-              <span className="items_price">{`$ ${
-                el.price * el.quantity
-              }.00`}</span>
-            </div>
-          </div>
-        );
-      })}
-    </>
-  );
-};

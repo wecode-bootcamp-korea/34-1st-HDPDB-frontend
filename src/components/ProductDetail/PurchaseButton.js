@@ -11,6 +11,7 @@ const PurchaseButton = ({ switchOption, caseType }) => {
 
   return (
     <button
+      className="select_btn"
       onClick={onClick}
       value={caseType}
       style={{ border: borderi ? '1px solid black' : ' none' }}
