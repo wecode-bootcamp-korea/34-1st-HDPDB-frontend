@@ -25,7 +25,7 @@ export const CartItems = ({
                   onClick={e => quantityDecrease(el.id)}
                 >
                   -
-                </button>{' '}
+                </button>
                 {el.quantity}
                 <button
                   type="button"

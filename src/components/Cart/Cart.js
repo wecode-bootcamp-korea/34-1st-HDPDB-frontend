@@ -7,7 +7,13 @@ const Cart = ({ closeCart }) => {
   const [cartList, setCartList] = useState([]);
 
   useEffect(() => {
-    fetch('/data/itemsData.json')
+    fetch('http://10.58.3.149:8000/api/cart', {
+      method: 'GET',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.WlsHgZgdtHbtQBZNoEnGj-c2b8nR57jUb_AbvRSDblo',
+      },
+    })
       .then(res => res.json())
       .then(data => setCartList(data));
   }, []);
@@ -26,6 +32,7 @@ const Cart = ({ closeCart }) => {
       return result;
     });
   };
+
   const quantityDecrease = id => {
     setCartList(el => {
       const result = el.map(listItem => {
@@ -50,7 +57,7 @@ const Cart = ({ closeCart }) => {
               X
             </button>
           </div>
-          {cartList.length === 0 ? (
+          {/* {cartList.length === 0 ? (
             <CartLink />
           ) : (
             <CartItems
@@ -59,7 +66,13 @@ const Cart = ({ closeCart }) => {
               quantityIncrease={quantityIncrease}
               quantityDecrease={quantityDecrease}
             />
-          )}
+          )} */}
+          <CartItems
+            cartList={cartList}
+            handleRemove={handleRemove}
+            quantityIncrease={quantityIncrease}
+            quantityDecrease={quantityDecrease}
+          />
         </div>
         <div className="cart_footer">
           <div className="total_price_box">
