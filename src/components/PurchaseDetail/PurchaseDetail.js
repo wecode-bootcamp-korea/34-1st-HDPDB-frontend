@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faGooglePay,
@@ -63,7 +62,6 @@ const PurchaseDetail = () => {
               <input type="text" placeholder="Phone" />
               <div className="continue_box">
                 <button className="continue_button">
-                  {' '}
                   Continue to shipping
                 </button>
               </div>
@@ -74,25 +72,26 @@ const PurchaseDetail = () => {
           </div>
         </div>
         <div className="purchase_sidebar">
-          {detailCart.map(el => {
+          {detailCart.map(items => {
             return (
-              <div className="items" key={el.id}>
+              <div className="items" key={items.id}>
                 <div className="items_quantity_box">
-                  <span className="items_quantity">{el.quantity}</span>
+                  <span className="items_quantity">{items.quantity}</span>
                 </div>
-                <img src={el.img} alt="item" className="items_img" />
+                <img src={items.img} alt="item" className="items_img" />
                 <div className="items_description">
-                  <span className="items_name">{el.products}</span>
+                  <span className="items_name">{items.products}</span>
                   <span className="items_option">
-                    {el.color}
-                    {` / `}
-                    {el.option}
+                    {`${items.color} / ${items.option}`}
                   </span>
                 </div>
                 <div className="items_delete_price">
-                  <span className="items_price">{`$ ${
-                    el.price * el.quantity
-                  }.00`}</span>
+                  <span className="items_price">
+                    {`${items.price * items.quantity}`.toLocaleString('en-US', {
+                      style: 'currency',
+                      currency: 'USD',
+                    })}
+                  </span>
                 </div>
               </div>
             );
@@ -105,10 +104,14 @@ const PurchaseDetail = () => {
             <div className="subtotal_detail_box">
               <span>
                 $
-                {detailCart.reduce((a, b) => {
-                  return a + b.price * b.quantity;
-                }, 0)}
-                {`.00`}
+                {detailCart
+                  .reduce((a, b) => {
+                    return a + b.price * b.quantity;
+                  }, 0)
+                  .toLocaleString('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                  })}
               </span>
               <span>Calculated at next step</span>
             </div>
@@ -117,10 +120,14 @@ const PurchaseDetail = () => {
             <span className="total_title">Total</span>
             <span className="total_price">
               USD ${' '}
-              {detailCart.reduce((a, b) => {
-                return a + b.price * b.quantity;
-              }, 0)}
-              {`.00`}
+              {detailCart
+                .reduce((a, b) => {
+                  return a + b.price * b.quantity;
+                }, 0)
+                .toLocaleString('en-US', {
+                  style: 'currency',
+                  currency: 'USD',
+                })}
             </span>{' '}
           </div>
         </div>
