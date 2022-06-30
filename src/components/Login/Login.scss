@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 @mixin column {
   display: flex;
   flex-direction: column;
@@ -14,7 +16,7 @@
   margin-top: 3px;
 }
 
-.login_overlay {
+.overlay {
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -23,7 +25,7 @@
   background: rgba(0, 0, 0, 0.3);
   z-index: 10;
 }
-.login_modal {
+.login {
   position: relative;
   text-align: center;
   margin: auto 0;
@@ -44,12 +46,8 @@
     .login_footer_link {
       font-size: 18px;
       margin-bottom: 20px;
-
-      a {
-        color: black;
-        text-decoration: none;
-        margin-left: 5px;
-      }
+      text-decoration: underline;
+      cursor: pointer;
     }
   }
   .login_form {
@@ -59,6 +57,18 @@
     margin: 0 auto;
     color: #adacac;
     font-size: 18px;
+
+    &::placeholder {
+      color: #adacac;
+      margin-left: 5px;
+    }
+
+    input {
+      height: 40px;
+      border: 1px solid #9f9f9f;
+      border-radius: 3px;
+      font-size: 16px;
+    }
 
     .email_box {
       @include column();
@@ -87,17 +97,7 @@
       }
     }
   }
-  .login_form input {
-    height: 40px;
-    border: 1px solid #9f9f9f;
-    border-radius: 3px;
-    font-size: 16px;
-  }
 
-  .login_form::placeholder {
-    color: #adacac;
-    margin-left: 5px;
-  }
   .login_main {
     width: 500px;
     height: 640px;
@@ -113,19 +113,27 @@
       height: 46px;
       color: white;
       border: none;
-      background-color: black;
+      background-color: $buttonColorBlack;
       font-weight: 700;
       font-size: 16px;
       margin-bottom: 20px;
-    }
-    .login_continue_btn:hover {
-      background-color: #fdcf41;
-      transition: ease-in-out 0.5s;
-      color: black;
-      cursor: pointer;
+
+      &:hover {
+        background-color: $buttonColorYellow;
+        transition: ease-in-out 0.5s;
+        color: $buttonColorBlack;
+        background: linear-gradient(
+          to left,
+          $buttonColorYellow 50%,
+          $buttonColorBlack 50%
+        );
+        background-size: 200% 100%;
+        background-position: right bottom;
+        cursor: pointer;
+      }
     }
 
-    .devide_line {
+    .divide_line {
       display: flex;
       justify-content: center;
       border-top: 1px solid #d9d5d2;
@@ -134,15 +142,6 @@
       width: 360px;
       margin: 0 auto;
     }
-    // .devide_line:after {
-    //   content: 'OR';
-    //   display: inline-block;
-    //   position: absolute;
-    //   color: #9f9e9e;
-    //   background-color: #fff;
-    //   padding: 0 10px;
-    //   bottom: 347px;
-    // }
 
     .login_title {
       position: relative;
@@ -169,7 +168,7 @@
       flex-direction: column;
       margin: 0 68px;
 
-      .login_social_span {
+      &_span {
         font-size: 18px;
         margin-bottom: 25px;
       }
@@ -190,7 +189,7 @@
         font-weight: 500;
         background-color: white;
         margin-bottom: 25px;
-        border: 1px outset black;
+        border: 1px outset $buttonColorBlack;
         position: relative;
 
         .google {
