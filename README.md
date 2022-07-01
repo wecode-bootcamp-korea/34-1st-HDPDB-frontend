@@ -55,16 +55,16 @@ https://www.notion.so/xannyus/HDPDB-febadee65bf045c696606d62e29767c0
 
 ## 메인 레이아웃
 
-<img src="/images/head.gif"  width="700" height="370">
+<img src="images/head.gif"  width="700" height="370">
 
 ## NAV 레이아웃 및 로그인, 회원가입
 
-<img src="/images/nav.gif"  width="700" height="370">
+<img src="images/nav.gif"  width="700" height="370">
 
 ## 상세페이지 (캐러셀 및 옵션 선택)
 
-<img src="/images/detail.gif"  width="700" height="370">
+<img src="images/detail.gif"  width="700" height="370">
 
 ## 장바구니 (수량 변경 및 삭제)
 
-<img src="/images/cart.gif"  width="700" height="370">
+<img src="images/cart.gif"  width="700" height="370">
